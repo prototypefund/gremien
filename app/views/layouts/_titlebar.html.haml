@@ -1,0 +1,70 @@
+%header
+  .g_titlebar
+    - if h_titlebar_export
+      .g_titlebar_first
+        = link_to h_titlebar_icon_path, target: h_actions_target do
+          = image_tag h_titlebar_icon
+        
+      
+      .g_titlebar_title.export
+        = h_titlebar_export
+      
+    - else
+      .g_titlebar_first
+        = link_to h_titlebar_icon_path do
+          = image_tag h_titlebar_icon
+          %span.text_label= h_titlebar_icon_text
+        
+      
+      .g_titlebar_last
+        = link_to '#menu', data: { action: 'show_hide', turbolinks: false } do
+          %span.text_label Menu
+          = image_tag 'sym/menu_w100.svg'
+        
+      
+      .g_titlebar_title
+        = h_titlebar_text
+      
+    
+    .title_menu#menu
+      = link_to t( '.help' ), help_path
+      
+      - unless h_logged_in?
+        = link_to t( '.login' ), login_path
+      
+      - else
+        = link_to t( '.logout' ), logout_path, method: :delete
+      
+      - unless h_visitor_confirmed?
+        - if h_visitor_has? :arguments
+          = link_to visitor_path( id: 'me' ) do
+            = pluralize current_visitor.arguments.count, 'Argument'
+            ungesichert
+            
+          
+        
+        - if h_visitor_has? :comments
+          = link_to visitor_path( id: 'me' ) do
+            = pluralize current_visitor.comments.count, 'Kommentar'
+            ungesichert
+            
+          
+        
+        - if h_visitor_has? :favs
+          = link_to visitor_path( id: 'me' ) do
+            = pluralize current_visitor.favs.count, 'Favorit'
+            ungesichert
+            
+          
+        
+      
+      - if h_visitor_has_data?
+        - if h_visitor_has_email?
+          = link_to 'Meine Daten', visitor_path( id: 'me' )
+        - else
+          = link_to 'Speichern', visitor_path( id: 'me' )
+        
+      
+    
+  
+

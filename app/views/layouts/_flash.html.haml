@@ -1,0 +1,16 @@
+- if alert or notice
+  #flash_layer &nbsp;
+  
+  %aside.flash
+    - unless alert.blank?
+      .content.alert
+        %p= h_markdown alert
+      
+    
+    - unless notice.blank?
+      .content.notice
+        %p= h_markdown notice
+      
+    
+  
+
