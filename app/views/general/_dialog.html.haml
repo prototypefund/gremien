@@ -1,0 +1,14 @@
+- show_after = h_partial_init show_after, 0
+
+.dialog_layer{ class: show_after > 0 ? 'prepared' : nil, data: { show_after: show_after } }
+  .dialog_outer
+    .dialog
+      .dialog_content
+        = yield :dialog_content
+      
+      .dialog_actions
+        = yield :dialog_actions
+      
+    
+  
+

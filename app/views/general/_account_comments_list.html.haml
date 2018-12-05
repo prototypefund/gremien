@@ -1,0 +1,15 @@
+- if comments.count > 0
+  .entities_list_title
+    = pluralize comments.count, 'Kommentar'
+  
+  %ul.entities_list
+    - comments.each do |comment|
+      %li{ id: comment.iid }
+        = link_to comment, class: 'preview' do
+          .explanation Sie kommentierten
+          .description= truncate comment.content, length: 255
+        
+      
+    
+  
+

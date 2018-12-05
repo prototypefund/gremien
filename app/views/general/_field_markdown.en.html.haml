@@ -1,0 +1,69 @@
+.field_help
+  For the description you can use
+  = link_to 'Markdown syntax.', '#markdown_syntax', data: { action: 'show_hide' }
+
+.field_markdown_syntax#markdown_syntax
+  %table
+    %tr
+      %th You write
+      %th resulting text
+    
+    %tr
+      %td Two spaces on end of line
+      %td Line break
+    
+    %tr
+      %td A blank line in the text
+      %td New paragraph
+    
+    %tr
+      %td a [link](http://markdown.de) in the text
+      %td
+        a
+        = link_to 'link', 'https://daringfireball.net/projects/markdown/syntax'
+        in the text
+      
+    
+    %tr
+      %td an *emphasis* in the text
+      %td
+        an
+        %em emphasis
+        in the text
+      
+    
+    %tr
+      %td a **strong importance** in the text
+      %td
+        a
+        %strong strong importance
+        in the text
+      
+    
+    %tr
+      %td
+        \- a list<br>
+        \- with two bullets
+      
+      %td
+        %ul
+          %li a list
+          %li with two bullets
+        
+      
+    
+    %tr
+      %td
+        > a citation inside the text
+      
+      %td
+        %blockquote
+          %p a citation inside the text
+        
+      
+    
+  
+  = link_to 'more infos &rarr;'.html_safe,
+        'https://daringfireball.net/projects/markdown/syntax#block',
+        target: '_blank'
+

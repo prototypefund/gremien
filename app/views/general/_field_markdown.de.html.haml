@@ -1,0 +1,70 @@
+.field_help
+  Für die Beschreibung können Sie
+  = link_to 'Markdown Syntax', '#markdown_syntax', data: { action: 'show_hide' }
+  benutzen.
+
+.field_markdown_syntax#markdown_syntax
+  %table
+    %tr
+      %th Sie schreiben
+      %th Resultat im Text
+    
+    %tr
+      %td Zwei Leerzeichen am Zeilenende
+      %td Zeilenumbruch
+    
+    %tr
+      %td Eine Leerzeile im Text
+      %td Neuer Absatz
+    
+    %tr
+      %td ein [Link](http://markdown.de) im Text
+      %td
+        ein
+        = link_to 'Link', 'http://markdown.de'
+        im Text
+      
+    
+    %tr
+      %td eine *Hervorhebung* im Text
+      %td
+        eine
+        %em Hervorhebung
+        im Text
+      
+    
+    %tr
+      %td eine **Verdeutlichung** im Text
+      %td
+        eine
+        %strong Verdeutlichung
+        im Text
+      
+    
+    %tr
+      %td
+        \- eine Liste<br>
+        \- mit zwei Punkten
+      
+      %td
+        %ul
+          %li eine Liste
+          %li mit zwei Punkten
+        
+      
+    
+    %tr
+      %td
+        > ein Zitat innerhalb eines Textes
+      
+      %td
+        %blockquote
+          %p ein Zitat innerhalb eines Textes
+        
+      
+    
+  
+  = link_to 'mehr Infos &rarr;'.html_safe,
+        'http://markdown.de/syntax/index.html#block',
+        target: '_blank'
+

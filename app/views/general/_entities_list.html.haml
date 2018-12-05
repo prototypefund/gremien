@@ -1,0 +1,17 @@
+- if entities.count > 0
+  .entities_list_title
+    = pluralize entities.count, entity_name.split( ' ' ).first
+    = entity_name.split( ' ' ).delete_at( 1 )
+    
+  
+  %ul.entities_list
+    - entities.each do |entity|
+      %li
+        = link_to entity, class: 'preview' do
+          .title= truncate entity.title, length: 100
+          .description= h_markdown_strip entity.description, 100
+        
+      
+    
+  
+
