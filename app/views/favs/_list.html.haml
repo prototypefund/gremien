@@ -1,0 +1,36 @@
+.entities_list_title
+  = pluralize favs.count, 'Favorit'
+
+%ul.entities_list
+  - favs.each do |fav|
+    %li{ id: fav.iid }
+      = link_to fav, class: 'preview' do
+        .explanation
+          - if fav.up?
+            =t '.you_faved'
+          - elsif fav.down?
+            =t '.you_dissed'
+          
+          - case
+          - when fav.entity.is_a?( Procedure )
+            =t 'labels.procedure'
+          - when fav.entity.is_a?( Argument )
+            =t 'labels.argument'
+          - when fav.entity.is_a?( Comment )
+            =t 'labels.comment'
+          
+        
+        - case
+        - when fav.entity.is_a?( Procedure )
+          .title
+            = truncate fav.entity.title, length: 100
+        - when fav.entity.is_a?( Argument )
+          .title
+            = truncate fav.entity.title, length: 100
+        - when fav.entity.is_a?( Comment )
+          .description= truncate fav.entity.content, length: 100
+        
+      
+    
+  
+

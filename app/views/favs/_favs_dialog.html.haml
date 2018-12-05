@@ -1,0 +1,29 @@
+- unless h_visitor_saw? 'favs_intro'
+  - content_for :dialog_content do
+    %p
+      Wenn Sie
+      %strong etwas favorisieren,
+      rutscht es in der Reihenfolge nach oben.
+    
+    - unless current_visitor? and current_visitor.confirmed?
+      %p
+        Damit Ihre Favoriten
+        %strong dauerhaft zählen
+        müssen Sie sie via E-Mail bestätigen. Sonst
+        %strong verfallen sie
+        nach 3 Tagen.
+      
+    
+    - content_for :dialog_actions do
+      - unless current_visitor? and current_visitor.confirmed?
+        = render 'visitors/form', visitor: current_visitor
+        .form_cancel
+          = link_to 'Egal, weiter', close_dialog_path( saw: 'favs_intro' ), remote: true, method: :put, 'data-turbolinks': false, class: 'button cancel'
+        
+      - else    
+        = link_to 'OK', close_dialog_path( saw: 'favs_intro' ), remote: true, method: :put, 'data-turbolinks': false, class: 'button'
+      
+    
+  
+  = render 'general/dialog'
+

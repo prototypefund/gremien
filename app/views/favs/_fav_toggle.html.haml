@@ -1,0 +1,64 @@
+.fav_toggle{ id: "fav_toggle_#{entity.iid}" }
+  - faved = h_faved?( entity )
+  - dissed = h_dissed?( entity )
+  
+  - if faved or dissed
+    - fav = entity.fav_for current_visitor
+  
+  
+  - link_content = capture do
+    = faved ? t( 'actions.dont_fav' ) :  t( 'actions.fav' )
+    = image_tag "sym/arrow_up_blue#{ faved ? '_fill' : '' }.svg", class: 'vignette_sym'
+    - if entity.favs.up.size > 0
+      .vignette_text{ class: faved ? 'hilite' : nil }
+        = entity.favs.up.size
+      
+    
+    - if faved
+      = image_tag "sym/arrow_down_gray.svg", class: 'vignette_sym'
+      - if entity.favs.down.size > 0
+        .vignette_text
+          = entity.favs.down.size
+        
+      
+    
+  
+  - if faved
+    - path = fav
+    - method = :delete
+  - else
+    - path = favs_path fav: { entity_id: entity.id, entity_type: entity.class.to_s, kind: 'up' }
+    - method = :post
+  
+  - unless dissed
+    = link_to link_content, path, remote: true, method: method, data: { turbolinks: false }
+  
+  
+  - link_content = capture do
+    = dissed ? t( 'actions.dont_dis' ) :  t( 'actions.dis' )
+    = image_tag "sym/arrow_down_blue#{ dissed ? '_fill' : '' }.svg", class: 'vignette_sym'
+    - if entity.favs.down.size > 0
+      .vignette_text{ class: dissed ? 'hilite' : nil }
+        = entity.favs.down.size
+      
+    
+    - if dissed
+      = image_tag "sym/arrow_up_gray.svg", class: 'vignette_sym'
+      - if entity.favs.up.size > 0
+        .vignette_text
+          = entity.favs.up.size
+        
+      
+    
+  
+  - if dissed
+    - path = fav
+    - method = :delete
+  - else
+    - path = favs_path fav: { entity_id: entity.id, entity_type: entity.class.to_s, kind: 'down' }
+    - method = :post
+  
+  - unless faved
+    = link_to link_content, path, remote: true, method: method, data: { turbolinks: false }
+  
+
