@@ -1,0 +1,52 @@
+- h_title "#{t 'labels.help'}: #{t 'actions.share_embed'}"
+- h_description "Wie kann man eine Debatte in eine externe Website einbetten? Kurze Anleitung in 2 Minuten."
+
+.help_separator#why
+
+.help_page
+  %h4
+    Wie kann man eine Debatte in eine externe Website einbetten?
+  
+  %p
+    %strong 1. Wähle ein Vorhaben
+  
+  %p
+    Man sucht sich z.B. aus den Vorhaben des Bundestags eines aus.
+    %br
+    = link_to 'Vorhaben Bundestag&nbsp;&rarr;'.html_safe, Body.bundestag
+  
+  %p
+    %strong 2. Klicke dort auf 'TEILEN'
+  
+  %p
+    Im oberen hellgrauen Teil links findet sich nach dem Text die Taste zum 'TEILEN'. Eventuell muss man etwas nach unten scrollen.
+  
+  %p
+    = image_tag 'help_de/1_teilen_ausschnitt.png'
+  
+  %p
+    %strong 3. Klicke auf '...EINBETTEN'
+  
+  %p
+    In der folgenden Überblendung klickt man auf 'IN WEBSITE EINBETTEN'.
+  
+  %p
+    %strong 4. HMTL-Schnipsel kopieren
+  
+  %p
+    Auf der folgenden Seite kann man einen HTML-Schnipsel kopieren und auf der eigenen Website einfügen.
+  
+  %p
+    %strong 5. Optional konfigurieren
+  
+  %p
+    Wenn man einen eigenen Account hat oder sich anlegen möchte, kann man optional auch z.B. nur die Argumente einblenden, die man selbst favorisiert hat.
+  
+  %p
+    = image_tag 'help_de/2_teilen_params.png'
+  
+  %p
+    %br
+    = link_to 'Loslegen', Body.bundestag, class: 'button'
+  
+

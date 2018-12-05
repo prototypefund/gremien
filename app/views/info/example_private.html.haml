@@ -1,0 +1,21 @@
+- h_title 'Mitwirkung privat?'
+- h_titlebar_text 'Einführung'
+
+= render 'application/help'
+= render 'info/why'
+= render 'info/participation_private'
+
+.help_separator#participation_private
+
+.help_page
+  %h4
+    Privates Beispiel
+  
+  %p
+    Text folgt...
+  
+  %p
+    %br
+    = link_to 'Loslegen', new_procedure_path, class: 'button'
+  
+

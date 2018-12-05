@@ -1,0 +1,72 @@
+%section.body
+  %h4 Freigabe
+
+%section.procedures
+  - if @procedures.count > 0
+    .entities_list_title
+      = @procedures.count
+      Vorhaben
+    
+    %ul.entities_list
+      - @procedures.each do |procedure|
+        %li.preview{ id: procedure.iid }
+          = link_to procedure.title, procedure, class: 'title'
+          .description
+            = h_markdown procedure.description
+          
+          - if procedure.url
+            .url= link_to procedure.url, procedure.url
+          
+          .actions
+            = link_to 'Freigeben', approve_procedure_path( procedure ), method: :put, remote: true
+            = link_to 'Löschen', procedure, method: :delete, remote: true
+          
+        
+      
+    
+  
+
+%section.arguments
+  - if @arguments.count > 0
+    .entities_list_title
+      = @arguments.count
+      Argumente
+    
+    %ul.entities_list
+      - @arguments.each do |argument|
+        %li.preview{ id: argument.iid }
+          = link_to argument.title, argument, class: 'title'
+          .description
+            = h_markdown argument.description
+          
+          .actions
+            = link_to 'Freigeben', approve_argument_path( argument ), method: :put, remote: true
+            = link_to 'Löschen', argument, method: :delete, remote: true
+          
+        
+      
+    
+  
+
+%section.comments
+  - if @comments.count > 0
+    .entities_list_title
+      = @comments.count
+      Kommentare
+    
+    %ul.entities_list
+      - @comments.each do |comment|
+        %li.preview{ id: comment.iid }
+          = link_to comment.title, comment, class: 'title'
+          .description
+            = h_markdown comment.description
+          
+          .actions
+            = link_to 'Freigeben', approve_comment_path( comment ), method: :put, remote: true
+            = link_to 'Löschen', comment, method: :delete, remote: true
+          
+        
+      
+    
+  
+

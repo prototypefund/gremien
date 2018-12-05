@@ -1,0 +1,31 @@
+- h_title 'Mitwirkung im Verein'
+- h_titlebar_text 'Einführung'
+
+= render 'application/help'
+= render 'info/why'
+
+.help_separator#participation_union
+
+.help_page
+  %h4
+    Mitwirkung im Verein
+  
+  %p
+    Vereinsarbeit bedeutet vor allem, Entscheidungen zu treffen.
+  
+  %p
+    Diese kann
+    %strong vom Vorstand transparenter gestaltet werden,
+    indem alle Mitglieder des Vereins die Chance zur Mitwirkung erhalten.
+  
+  %p
+    %strong Sammeln Sie Pro- und Kontra-Argumente
+    und erleichtern Sie die Organisation von Veranstaltungen, entzerren Sie Mitgliederversammlungen und
+    %strong ermutigen Sie durch anonyme Teilnahme
+    die Vereinsmitglieder zu mehr aktiver Beteiligung.
+  
+  %p
+    %br
+    = link_to 'Loslegen', new_procedure_path, class: 'button'
+  
+

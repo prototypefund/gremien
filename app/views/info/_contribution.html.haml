@@ -1,0 +1,21 @@
+.entity{ id: entity.iid, class: entity.status }
+  .kind{ class: entity.class.to_s.parameterize }
+    = kind
+  
+  .title= truncate label, length: 50
+  .infos
+    .status= entity.status
+    .link= link_to entity.iid, entity, title: entity.id
+  
+  .timespan
+    seit
+    = time_ago_in_words entity.updated_at
+  
+  .ratings_list
+    - entity.ratings.each do |rating|
+      .rating{ class: h_rating_info( rating ), title: rating.id }
+        = h_rating_info rating
+      
+    
+  
+

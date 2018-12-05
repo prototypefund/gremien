@@ -1,0 +1,25 @@
+- h_title 'Cockpit'
+- h_description 'Alles, was in den letzten Stunden passiert ist...'
+- h_titlebar_text 'Cockpit'
+
+.contribution_list
+  - @todos.each do |contribution|
+    - if contribution.is_a?( Argument )
+      = render 'contribution', entity: contribution, kind: 'Argument', label: contribution.title
+    
+    - if contribution.is_a?( Comment )
+      = render 'contribution', entity: contribution, kind: 'Kommentar', label: contribution.content
+    
+  
+  - @juvenile.each do |contribution|
+    - if contribution.is_a?( Argument )
+      = render 'contribution', entity: contribution, kind: 'Argument', label: contribution.title
+    
+    - if contribution.is_a?( Comment )
+      = render 'contribution', entity: contribution, kind: 'Kommentar', label: contribution.content
+    
+  
+
+.log_list.half
+  = render 'logs/log'
+

@@ -1,0 +1,20 @@
+- h_title 'Verlauf'
+- h_titlebar_icon 'back_arrow', root_path
+- h_titlebar_text 'Verlauf'
+
+
+.entities_list_title Zeitlicher Verlauf
+%ul.entities_list
+  - @entities.each do |entity|
+    - if @date != entity.updated_at.at_midnight
+      %li.entity_separator=l entity.updated_at, format: :short_day
+      - @date = entity.updated_at.at_midnight
+    
+    %li{ class: entity.class.to_s }
+      = link_to entity, class: 'preview' do
+        .description= entity.class.to_s.capitalize
+        .title= entity.title
+      
+    
+  
+
