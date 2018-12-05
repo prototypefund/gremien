@@ -1,0 +1,57 @@
+<%= @greeting %>
+
+ein neues Argument ist eingegangen.
+<% if @frequent_rater %>
+Sie kennen die Vorgehensweise ja schon.
+<% else %>
+Damit es veröffentlicht werden kann, prüfen <%= @required_ratings %> zufällig ausgewählte Mitwirkungsinteressierte, ob es geeignet ist.
+
+PRÜFEN SIE BITTE:
+- ob in dem Argument gehetzt oder beleidigt wird
+- ob es sich um Spam oder Werbung handelt
+
+- ob der Titel für sich selbst stehen kann
+- ob sich die Aussage gut verstehen lässt
+- ob es sachlich & für die Debatte zielführend ist
+
+ES IST EGAL:
+- ob das Argument richtig ist
+- ob das Argument ihrer Meinung entspricht
+
+(Im Zweifel schauen Sie bitte in unsere Gemeinschaftsrichtlinien unter <%= contribution_rules_url %>)
+<% end %>
+
+HIER KLICKEN, WENN SIE KEINE ZEIT HABEN:
+<%= @relay_url %>
+
+
+Zum VORHABEN
+<%= @reference_title %>
+
+ist dieses <%= @contribution_kind %> zu bewerten:
+----------------------------------------
+
+TITEL
+<%= @entity_title %>
+
+BESCHREIBUNG
+<%= @entity_description %>
+
+----------------------------------------
+Klicken Sie hier, um alles im Kontext zu lesen:
+<%= @context_url %>
+
+
+IHRE STIMME:
+
+X Das Argument ist Spam, hetzend oder beleidigend:
+<%= @offensive_url %>
+
+X Das Argument muss verbessert werden:
+<%= @improve_url %>
+
+√ Das Argument kann veröffentlicht werden:
+<%= @accept_url %>
+
+
+Vielen Dank für Ihre Mitwirkung!

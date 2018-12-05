@@ -1,0 +1,53 @@
+<%= @greeting %>
+
+ein neuer Kommentar ist eingegangen.
+<% if @frequent_rater %>
+Sie kennen die Vorgehensweise ja schon.
+<% else %>
+Damit er veröffentlicht werden kann, stimmen <%= @required_ratings %> zufällig ausgewählte Mitwirkungsinteressierte darüber ab, ob er geeignet ist.
+
+PRÜFEN SIE BITTE:
+- ob in dem Kommentar gehetzt oder beleidigt wird
+- ob es sich um Spam oder Werbung handelt
+
+- ob sich die Aussage gut verstehen lässt
+- ob er sachlich & für die Debatte zielführend ist
+
+ES IST EGAL:
+- ob der Kommentar richtig ist
+- ob der Kommentar ihrer Meinung entspricht
+
+(Im Zweifel schauen Sie bitte in unsere Gemeinschaftsrichtlinien unter <%= contribution_rules_url %>)
+<% end %>
+
+HIER KLICKEN, WENN SIE KEINE ZEIT HABEN:
+<%= @relay_url %>
+
+
+Zum <%= @reference_kind %>
+<%= @reference_title %>
+
+ist dieser Kommentar zu bewerten:
+----------------------------------------
+
+BESCHREIBUNG
+<%= @entity_description %>
+
+----------------------------------------
+Klicken Sie hier, um alles im Kontext zu lesen:
+<%= @context_url %>
+
+
+IHRE STIMME:
+
+X Der Kommentar ist Spam, hetzend oder beleidigend:
+<%= @offensive_url %>
+
+X Der Kommentar muss verbessert werden:
+<%= @improve_url %>
+
+√ Der Kommentar kann veröffentlicht werden:
+<%= @accept_url %>
+
+
+Vielen Dank für Ihre Mitwirkung!

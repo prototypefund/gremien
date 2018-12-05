@@ -1,0 +1,53 @@
+<%= @greeting %>
+
+auf TeiltMit gibt es Neuigkeiten zu folgenden Vorhaben:
+
+<% @follows.each_with_index do |follow, index|
+    @last_sent = follow.last_sent_at
+    if follow.has_new_content?
+      procedure = follow.entity %>
+<%= sprintf '%02d', index + 1 %> <%= procedure.title.upcase %>
+<%  end
+  end %>
+
+
+hier die Details dazu:
+<% @follows.each_with_index do |follow, index|
+    @last_sent = follow.last_sent_at
+    if follow.has_new_content?
+      procedure = follow.entity %>
+
+<%= sprintf '%02d', index + 1 %> Im Mitwirkungsforum zum Vorhaben
+"<%= procedure.title.upcase %>"
+<%= url_for( procedure ).split( '-' )[0..1].join( '-' ) %>
+wurde aktualisiert:
+<%    if procedure.updated_at > @last_sent %>
+
+-  das Vorhaben selbst
+<%    end %>
+<%    if procedure.arguments.any? { |a| a.has_new_content_since? @last_sent } %>
+<%      procedure.arguments.published.each do |argument|
+          if argument.updated_at > @last_sent %>
+
+-  das Argument
+   "<%= argument.title.upcase %>"
+   <%= url_for( argument ).split( '-' )[0..1].join( '-' ) %>
+<%        end
+          new_comments = argument.changed_comments_since? @last_sent
+          if new_comments > 0
+            unless argument.updated_at > @last_sent %>
+
+-  zum Argument
+   "<%= argument.title.upcase %>"
+   <%= url_for( argument ).split( '-' )[0..1].join( '-' ) %>
+   <%= new_comments %> neue<%= 'r' if new_comments == 1 %> Kommentar<%= 'e' if new_comments != 1 %>
+<%          else %>
+   und <%= new_comments %> neue<%= 'r' if new_comments == 1 %> Kommentar<%= 'e' if new_comments != 1 %> dazu
+   <%= url_for( argument ).split( '-' )[0..1].join( '-' ) %>
+<%          end
+          end
+        end
+      end %>
+
+<%  end
+  end %>

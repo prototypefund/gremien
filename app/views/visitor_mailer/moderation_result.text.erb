@@ -1,0 +1,20 @@
+<%= @greeting %>
+
+<%= @contribution_text %> haben <%= pluralize @entity.vote_count, 'Person' %> bewertet:
+ER WURDE <%=t( @entity.accepted? ? 'rating_labels.accepted' : 'rating_labels.declined' ).upcase %> MIT <%= "#{@entity.vote_count_accepted} ZU " if @entity.accepted? %><%= @entity.vote_count_declined %><%= " ZU #{@entity.vote_count_accepted}" unless @entity.accepted? %> STIMMEN
+
+Angeführte Gründe:
+<% @entity.vote_reasons.each do |r,c| %>
+<%= t( "rating_labels.#{r}" ).upcase %> von <%= pluralize c, 'Person' %>
+<% end %>
+
+<% unless @entity.vote_feedback.blank? %>
+Rückmeldungen der BewerterInnen:
+<% @entity.vote_feedback.each do |f| %>
+---
+<%= f %>
+<% end %>
+
+<% end %>
+Hier können Sie Ihren Beitrag nochmals ansehen oder bearbeiten:
+<%= @contribution_url %>

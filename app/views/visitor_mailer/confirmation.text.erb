@@ -1,0 +1,23 @@
+<%= @greeting %>
+
+<% if @visitor.has_content? %>
+sie haben auf teil-mit.de folgende ungesicherte Beiträge:
+<% if @visitor.arguments.count > 0 %>
+<%= pluralize @visitor.arguments.count, 'Argument' %>
+<% end %>
+<% if @visitor.comments.count > 0 %>
+<%= pluralize @visitor.comments.count, 'Kommentar' %>
+<% end %>
+<% if @visitor.follows.count > 0 %>
+<%= pluralize @visitor.follows.count, 'Folgeauftrag' %>
+<% end %>
+<% if @visitor.favs.count > 0 %>
+<%= pluralize @visitor.favs.count, 'Favorit' %>
+<% end %>
+
+Sichern Sie diese Beiträge permanent, indem Sie folgenden Link klicken oder in die Adressleiste Ihres Browsers kopieren:
+<% else %>
+bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie folgenden Link klicken oder in die Adressleiste Ihres Browsers kopieren:
+<% end %>
+
+<%= @confirm_url %>
