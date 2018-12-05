@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procedure: one
+  ident_scheme: MyString
+  area: MyString
+  vote: MyString
+  count: 1
+
+two:
+  procedure: two
+  ident_scheme: MyString
+  area: MyString
+  vote: MyString
+  count: 1

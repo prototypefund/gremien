@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  status: MyString
+  name: MyString
+  owner: one
+  accounts}: MyString
+
+two:
+  token: MyString
+  status: MyString
+  name: MyString
+  owner: two
+  accounts}: MyString

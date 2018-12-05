@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  account: one
+  procedure: one
+  settings: MyText
+
+two:
+  token: MyString
+  account: two
+  procedure: two
+  settings: MyText

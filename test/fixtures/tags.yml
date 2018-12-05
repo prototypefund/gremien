@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  value: MyString
+  owner: one
+  accounts}: MyString
+
+two:
+  key: MyString
+  value: MyString
+  owner: two
+  accounts}: MyString

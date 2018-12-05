@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  status: MyString
+  kind: 
+  period: one
+  title: MyString
+  description: MyText
+  submission_at: 2018-05-02 15:14:11
+  vote_date_at: 2018-05-02 15:14:11
+  url: MyString
+  owner: one
+
+two:
+  token: MyString
+  status: MyString
+  kind: 
+  period: two
+  title: MyString
+  description: MyText
+  submission_at: 2018-05-02 15:14:11
+  vote_date_at: 2018-05-02 15:14:11
+  url: MyString
+  owner: two

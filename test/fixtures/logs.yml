@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor: one
+  actor_type: Actor
+  action: MyString
+  comment: MyText
+  entity: one
+  entity_type: Entity
+  user_agent: MyString
+
+two:
+  actor: two
+  actor_type: Actor
+  action: MyString
+  comment: MyText
+  entity: two
+  entity_type: Entity
+  user_agent: MyString
