@@ -1,0 +1,91 @@
+@import 'constants';
+@import 'mixins';
+
+$separator_background: $accented_back_color;
+$vignette_color: lighten( $weak_text_color, 30 );
+
+
+.entities_list_title {
+  margin: 0.25rem 0 0;
+  padding: 0.5rem 0.75rem 0.5rem;
+  border-bottom: 1px solid $border_color;
+}
+
+.entities_list_actions {
+  padding: 0.5rem 0.75rem 0;
+  text-align: center;
+  
+  .button {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.entities_list {
+  margin: 0;
+  padding: 0;
+  list-style: none outside;
+  border-bottom: 1px solid $border-color;
+  
+  li + li {
+    border-top: 1px solid $border_color;
+  }
+  
+  .entity_separator {
+    padding: 0.125rem 0.75rem;
+    background-color: $separator_background;
+  }
+  
+  .entity_action_new {
+    display: block;
+    padding: 0.75rem 0.75rem;
+    text-align: center;
+    
+    a {
+      margin: 0.25rem 1.5rem;
+    }
+    
+    .help {
+      margin-top: 0.5rem;
+      color: $weak_text_color;
+    }
+  }
+  
+  .preview {
+    display: block;
+    padding: 0.75rem 0.75rem;
+    color: $text_color;
+    
+    .explanation {
+      color: $weak_text_color;
+    }
+    .title {
+      margin-bottom: 0.25rem;
+      font-size: 1.19em;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .date {
+      color: $weak_text_color;
+    }
+    @include actions;
+  }
+}
+
+.entities_list_actions + .entities_list {
+  border-top: 1px solid $border_color;
+}
+
+@media (min-width: $more_than_smartphone ) {
+  .entities_list_title {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .entities_list {
+    .entity_action_new,
+    .entity_separator,
+    .preview {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}

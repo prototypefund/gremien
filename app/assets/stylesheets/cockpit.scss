@@ -1,0 +1,184 @@
+// Place all the styles related to the Cockpit here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$contributions_back_color: darken( $accented_back_color, 5 );
+$card_color: white;
+$declined_color: $red;
+$accepted_color: $green;
+$argument_back_color: hsl( 290, 50%, 25% );
+$comment_back_color: hsl( 60, 50%, 25% );
+
+
+.contribution_list {
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  width: 50%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  padding: 1rem;
+  background-color: $contributions_back_color;
+  @include clearfix;
+  
+  .entity {
+    float: left;
+    width: 12rem;
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    background-color: $card_color;
+    font-size: 0.84rem;
+    
+    &.declined {
+      background-color: $background-color;
+      
+      .status {
+        font-weight: bold;
+        color: $declined_color;
+      }
+      .rating {
+        &.improve,
+        &.abusive {
+          background-color: lighten( $declined_color, 50 );
+          border-color: $declined_color;
+        }
+      }
+    }
+    &.public {
+      background-color: $background-color;
+      
+      .status {
+        font-weight: bold;
+        color: $accepted_color;
+      }
+      .rating {
+        &.accept {
+          background-color: lighten( $accepted_color, 50 );
+          border-color: $accepted_color;
+        }
+      }
+    }
+    
+    .timespan {
+      color: $weak_text_color;
+    }
+    .kind {
+      padding: 0.1rem 0.25rem;
+      color: $inverse_text_color;
+      font-weight: bold;
+      text-transform: uppercase;
+      
+      &.argument {
+        background-color: $argument_back_color;
+      }
+      &.comment {
+        background-color: $comment_back_color;
+      }
+    }
+    .title {
+      margin: 0.5rem 0;
+      font-weight: normal;
+    }
+    .infos {
+      @include clearfix;
+      
+      .status {
+        float: left;
+        width: auto;
+        text-transform: uppercase;
+      }
+      .link {
+        float: right;
+        width: auto;
+      }
+    }
+    
+    .ratings_list {
+      clear: both;
+      margin-top: 0.25rem;
+      
+      .rating {
+        display: inline-block;
+        margin-bottom: 0.25rem;
+        padding: 0 0.2rem;
+        border: 1px solid $border_color;
+        text-transform: uppercase;
+        
+        &.open {
+          color: $weak_text_color;
+        }
+      }
+    }
+  }
+}
+
+.log_list {
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  &.half {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    width: 50%;
+    bottom: 0;
+  }
+  
+  .slot {
+    padding: 0.5rem;
+    @include clearfix;
+    
+    .time_count {
+      float: left;
+      width: 2.5rem;
+      margin: 0 1rem 1rem 0;
+      font-size: 2rem;
+      line-height: 0.9;
+      text-align: right;
+      
+      .hour {
+        font-weight: bold;
+      }
+    }
+    
+    .content {
+      float: left;
+      width: 18rem;
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+      
+      .log {
+        font-size: 0.84*0.84rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    
+    .date,
+    .action,
+    .entity,
+    .count {
+      display: inline-block;
+    }
+    .date {
+      color: $weak_text_color;
+    }
+    .action {
+      padding: 0 0.2rem;
+    }
+    .entity {
+    }
+    .count {
+      padding: 0 0.2rem;
+      font-weight: bold;
+    }
+  }
+  .slot + .slot {
+    border-top: 1px solid $border_color;
+  }
+}

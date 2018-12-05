@@ -1,0 +1,52 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+
+// ---------------------------------------------
+
+.help_separator {
+  height: 2.5rem;
+}
+.help_page {
+  @include clearfix;
+  padding: 1rem 4%;
+  
+  .title {
+    font-weight: normal;
+  }
+  p {
+    margin: 1em 0;
+  }
+}
+@media (min-width: $width_two_columns) {
+  .help_separator {
+    height: 0;
+  }
+  .help_page {
+    float: left;
+    width: 50%;
+    padding: 1.5rem 3%;
+  }
+}
+@media (min-width: $width_three_columns) {
+  .help_page {
+    width: 33.33%;
+    padding: 1.5rem 2.5%;
+  }
+}
+@media (min-width: $width_four_columns) {
+  .help_page {
+    width: 25%;
+    padding: 1.5rem 2%;
+  }
+}
+
+.link_list {
+  a {
+    display: block;
+    margin: 0.75rem 0;
+  }
+}

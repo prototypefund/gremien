@@ -1,0 +1,85 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$background_color: $accented_back_color;
+
+// ---------------------------------------------
+
+.procedure_result {
+  padding-top: 2rem;
+  
+  h4 {
+    line-height: 1.2;
+  }
+}
+
+.result_graph {
+  margin: 2rem 0;
+  @include clearfix;
+  
+  .block {
+    box-sizing: border-box;
+    
+  }
+  
+  .labels {
+    @include clearfix;
+    
+    .block {
+      float: center;
+      width: auto;
+      padding: 0.25rem 0.25rem;
+      color: transparent;
+      font-size: 1.19 * 1.19 * 1.19rem;
+      font-weight: bold;
+      overflow: visible;
+      
+      &.abstain {
+        display: none;
+      }
+      &.yes {
+        float: left;
+        color: $column_pro_color;
+      }
+      &.no {
+        float: right;
+        color: $column_contra_color;
+      }
+    }
+  }
+  .blocks {
+    text-align: center;
+    
+    .block {
+      display: inline-block;
+      height: 2rem;
+      padding: 0.25rem;
+      color: transparent;
+      background-color: $weak_text_color;
+      font-weight: bold;
+      text-align: center;
+      overflow: visible;
+      
+      &.yes {
+        background-color: $column_pro_color;
+      }
+      &.abstain {
+        color: white;
+        background-color: $column_info_color;
+      }
+      &.no {
+        background-color: $column_contra_color;
+      }
+    }
+  }
+}
+
+table {
+  .absolute,
+  .relative {
+    text-align: right;
+  }
+}

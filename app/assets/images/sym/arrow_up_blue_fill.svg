@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" id="ebene1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve">
+<style>
+  .digit {
+    font-family: "HelveticaNeue", Arial, sans-serif;
+    font-size: 6px;
+  }
+</style>
+
+<rect x="0" y="0" width="10" height="10" fill="none"/>
+<path fill="#1468A0" stroke="#1468A0" stroke-width="0.5" d="M 1,5 L3,5 L3,9 L7,9 L7,5 L9,5 L5,1 Z"/>
+</svg>

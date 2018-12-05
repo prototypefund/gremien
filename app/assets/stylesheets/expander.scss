@@ -1,0 +1,50 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$expander_back_color: $accented_back_color;
+$expander_border_color: $accented_back_color;
+
+// ---------------------------------------------
+
+.expander_text {
+  display: block;
+  margin: 0 1rem 0.5rem;
+  padding: 0.15rem 0;
+  border-top: 3px dotted $expander_border_color;
+  color: $weak_text_color;
+  font-size: 0.84 * 0.84rem;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  
+  img {
+    height: 1.5rem;
+    vertical-align: middle;
+  }
+  
+  .collapser {
+    display: none;
+  }
+  
+  &:hover {
+    img {
+      background-color: $expander_back_color;
+    }
+  }
+}
+
+.title + .expander_text {
+  margin-top: -1rem;
+}
+
+@media (min-width: $text_container_width * 2) {
+  .expander_text {
+    float: left;
+    width: 65%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}

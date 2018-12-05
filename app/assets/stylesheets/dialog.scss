@@ -1,0 +1,133 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+@import 'mixins';
+
+// ---------------------------------------------
+
+$dialog_outer_back_color: rgba( 0,0,0,0.5 );
+$dialog_back_color: white;
+$dialog_border_color: #777;
+
+// ---------------------------------------------
+
+.dialog {
+  display: inline-block;
+  width: auto;
+  max-width: $text_container_width * 0.75;
+  padding: 1.5rem 1rem;
+  background-color: $dialog_back_color;
+  border: 1px solid $dialog_border_color;
+  border-radius: 0.5rem;
+  text-align: center;
+  
+  .dialog_content {
+    margin-bottom: 1rem;
+    
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .dialog_actions {
+    a {
+      margin: 0.5rem;
+    }
+    
+    form {
+      text-align: left;
+      
+      .actions {
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        input[type=submit] {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .form_cancel {
+      text-align: left;
+      
+      .button {
+        margin: 0 1rem 0 0;
+      }
+    }
+  }
+  
+  &.embedded {
+    margin: 1rem auto;
+    border: 1px solid $border_color;
+    @include popup_shadow;
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .dialog {
+    padding: 2rem 1.5rem;
+    font-size: 1.19em;
+    
+    .dialog_content {
+      margin-bottom: 2rem;
+      
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+    .dialog_actions {
+      form {
+        .actions {
+          margin-top: 1rem;
+        }
+      }
+      .form_cancel {
+        .button {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.dialog_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $dialog_outer_back_color;
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.3s ease-in;
+  
+  &.prepared {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &.away {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in, visibility linear 0.35s;
+  }
+  
+  .dialog_outer {
+    position: absolute;
+    top: 2rem;
+    left: 5%;
+    right: 5%;
+    text-align: center;
+    
+    .dialog {
+      margin: 0 auto;
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .dialog_layer {
+    .dialog_outer {
+      top: 3.5rem;
+    }
+  }
+}

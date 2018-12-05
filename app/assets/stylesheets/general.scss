@@ -1,0 +1,169 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+
+// ---------------------------------------------
+
+$content_backgr: $accented_back_color;
+$body_backgr: $outer_back_color;
+$main_backgr: $background_color;
+
+$relay_color: $blue;
+$abusive_color: $red;
+$improve_color: $orange;
+$accept_color: $green;
+
+$focus_shadow: $section_shadow;
+
+$field_explanation: $dark-gray;
+
+// --- GENERAL CLASSES -------------------------
+
+.centered {
+  text-align: center;
+}
+
+// --- GENERAL WIDGETS -------------------------
+
+.title {
+  margin-bottom: 0.125em;
+  font-size: 1.19em;
+  font-weight: bold;
+  line-height: 1.3; //(1.5 / 1.19);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small_content {
+  max-width: $text_container_width;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-color: $content_backgr;
+  
+  &.innerlite {
+    
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .small_content {
+    padding: 4rem 3rem;
+  }
+}
+
+.focus_content {
+  min-height: 100vh;
+  background-color: $accented_back_color;
+  
+  .focus {
+    max-width: $text_container_width;
+    margin: 0 auto;
+    background-color: $background_color;
+    box-shadow: $focus_shadow;
+    
+    .text_block {
+      padding: 1rem 0.75rem 2rem;
+      
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .focus_content .focus .text_block {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+// ---------------------------------------------
+
+.relay,
+.abusive,
+.improve,
+.accept {
+  font-weight: bold;
+}
+.relay {
+  color: $relay_color;
+}
+.abusive {
+  color: $abusive_color;
+}
+.improve {
+  color: $improve_color;
+}
+.accept {
+  color: $accept_color;
+}
+
+// ---------------------------------------------
+
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: $main_backgr;
+}
+@media (min-width: $more_than_smartphone) {
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 2.5rem;
+  
+  & > h1,
+  & > p,
+  & > form {
+    margin: 0.5rem;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  
+  table {
+    td {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.text_content {
+  @include clearfix;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// --- Impressum styles ------------------------
+
+img.impressum {
+  width: 150px;
+}
+img.impressum_email {
+  width: 100px;
+}
+
+// --- Foundation Button overrides ---
+
+.button {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  &.cancel {
+    background-color: $cancel_button_background;
+  }
+  &.danger {
+    background-color: $danger_button_background;
+  }
+}
+

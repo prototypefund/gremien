@@ -1,0 +1,42 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$status_backcolor: darken( $accented_back_color, 20 );
+$for_vote_color: #e1f100;
+
+
+// ---------------------------------------------
+
+.proc_current_status {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.1rem 0.5rem;
+  color: white;
+  background-color: $status_backcolor;
+  border-radius: 0.25rem;
+  font-size: 0.84rem;
+  font-weight: bold;
+  
+  &.cst_187c {
+    background-color: $column_pro_color;
+  }
+  &.cst_110d {
+    background-color: $column_contra_color;
+  }
+  &.cst_88da {
+    color: $text_color;
+    background-color: $for_vote_color;
+    border: 1px solid darken( $for_vote_color, 10 );
+  }
+  &.cst_bbe6 {
+    background-color: $column_info_color;
+  }
+  &.cst_new { // new
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: $yellow;
+  }
+}

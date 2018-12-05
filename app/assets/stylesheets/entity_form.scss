@@ -1,0 +1,37 @@
+@import 'constants';
+
+$form_background: $accented_back_color;
+
+// ---------------------------------------------
+
+.form_cancel {
+  text-align: left;
+  
+  .button {
+    margin: 1rem 1rem 1rem 0;
+  }
+}
+
+.entity_form {
+  @include clearfix;
+  max-width: $text_container_width;
+  margin: 0 auto;
+  padding: 0.75rem;
+  background-color: $form_background;
+  
+  .form_help {
+    padding: 0 0.5rem;
+  }
+  
+  
+}
+@media (min-width: $more_than_smartphone) {
+  .entity_form {
+    padding: 2rem;
+    
+    .form_explanation:first-child {
+      margin-top: 0;
+    }
+  }
+}
+

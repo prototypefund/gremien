@@ -1,0 +1,104 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$date_color: $orange;
+
+// ---------------------------------------------
+
+.procedures_list {
+  .preview {
+    @include clearfix;
+    
+    .text {
+      clear: both;
+      max-width: 40rem;
+      max-height: 11rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      title {
+        font-size: 1rem;
+      }
+    }
+    .infos {
+      @include clearfix;
+      margin-top: 0.5rem;
+      
+      .date {
+        float: left;
+        width: auto;
+      }
+      .fav_display {
+        float: right;
+        width: auto;
+      }
+      .proc_current_status {
+        float: left;
+        width: auto;
+        margin-top: 0;
+      }
+      .arguments_vignette {
+        margin-top: 0.2rem;
+      }
+    }
+  }
+}
+@media (min-width: $width_two_columns) {
+  .entities_list_actions + .procedures_list {
+    border-top: 0;
+  }
+  .procedures_list {
+    @include clearfix;
+    
+    li {
+      float: left;
+      width: 50%;
+      height: 20rem;
+      border-top: 1px solid $border_color;
+    }
+    
+    .entity_action_new {
+      padding: 1.5rem;
+      
+      .help {
+        display: inherit;
+      }
+    }
+    .preview {
+      padding: 1.5rem;
+      overflow: hidden;
+      
+      .text {
+        max-height: 13rem;
+        
+        title {
+          font-size: 1.19rem;
+        }
+      }
+    }
+  }
+}
+@media (min-width: $width_three_columns) {
+  .procedures_list {
+    li {
+      width: 33.33%;
+    }
+  }
+}
+@media (min-width: $width_four_columns) {
+  .procedures_list {
+    li {
+      width: 25%;
+    }
+  }
+}
+@media (min-width: $width_five_columns) {
+  .procedures_list {
+    li {
+      width: 20%;
+    }
+  }
+}

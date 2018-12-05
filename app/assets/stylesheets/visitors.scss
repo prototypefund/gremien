@@ -1,0 +1,55 @@
+// Place all the styles related to the Visitors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$status_bad_color: $red;
+$alert_back_color: $orange_light;
+
+// ---------------------------------------------
+section.me {
+  @include clearfix;
+  
+  .details {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    
+    .status {
+      .bad {
+        color: $status_bad_color;
+        font-weight: bold;
+      }
+      .message_important {
+        display: block;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        background-color: $alert_back_color;
+        border: 1px solid darken( $alert_back_color, 15 );
+        text-align: center;
+      }
+    }
+  }
+  form {
+    @include clearfix;
+    max-width: $text_container_width;
+    margin: 1rem auto;
+    padding: 1rem 1rem 0;
+    background-color: $accented_back_color;
+  }
+}
+section.favs,
+section.follows {
+  .entities_list .title {
+    font-size: 1rem;
+  }
+}
+@media (min-width: $width_four_columns) {
+  section.procedures {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 25%;
+    bottom: 0;
+  }
+}

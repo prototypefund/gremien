@@ -1,0 +1,24 @@
+// Place all the styles related to the Ratings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$rating_details_back: white;
+
+
+.rating_info,
+.rating_details {
+  padding: 0.75rem;
+}
+@media ( min-width: $more_than_smartphone ) {
+  .rating_info,
+  .rating_details {
+    padding: 2rem;
+  }
+}
+
+.rating_details {
+  background-color: $rating_details_back
+}
+

@@ -1,0 +1,39 @@
+// Place all the styles related to the Arguments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+
+.attachment_entity_preview {
+  padding: 0.5rem;
+}
+
+.attachments_list {
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none outside;
+  overflow: hidden;
+  
+  .attachment {
+    display: block;
+    color: $text_color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    .icon {
+      height: 1.1rem;
+      padding-bottom: 0.2rem;
+    }
+  }
+  .attachment_actions {
+    display: inline-block;
+    margin-left: 1rem;
+    
+    .attachment_action {
+      font-size: 0.84em;
+      text-transform: uppercase;
+    }
+  }
+}

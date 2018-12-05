@@ -1,0 +1,91 @@
+@import 'constants';
+
+$vignette_color: lighten( $weak_text_color, 10 );
+$attention_backcolor: $orange;
+
+.vignette {
+  display: inline-block;
+  padding: 0 0.5rem 0.1rem;
+  color: $inverse_text_color;
+  background-color: $vignette_color;
+  border-radius: 1rem;
+  font-weight: bold;
+  
+  &.hilite {
+    background-color: $link_color;
+  }
+  &.pro {
+    background-color: $column_pro_color;
+  }
+  &.info {
+    background-color: $column_info_color;
+  }
+  &.contra {
+    background-color: $column_contra_color;
+  }
+  &.attention {
+    background-color: $attention_backcolor;
+  }
+}
+
+.vignette_sym {
+  width: 1.1rem;
+  vertical-align: text-bottom;
+}
+.vignette_text {
+  display: inline;
+  color: $vignette_color;
+  font-size: 1rem;
+  
+  &.hilite {
+    color: $link_color;
+    font-weight: bold;
+  }
+}
+
+.arguments_vignette {
+  display: block;
+  float: right;
+  width: auto;
+  margin-top: 0.25rem;
+  border-radius: 1rem;
+  background-color: $column_info_color;
+  overflow: hidden;
+  
+  .pro,
+  .info,
+  .contra {
+    display: block;
+    float: left;
+    width: auto;
+    padding: 0 0.35em;
+    color: $inverse_text_color;
+    background-color: $column_info_color;
+    font-size: 0.84em;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    &:first-child {
+      padding-left: 0.6rem;
+    }
+    &:last-child {
+      padding-right: 0.6rem;
+    }
+  }
+  .pro {
+    background-color: $column_pro_color;
+    border-right: 1px solid $inverse_text_color;
+    
+    &:last-child {
+      border: 0;
+    }
+  }
+  .contra {
+    border-left: 1px solid $inverse_text_color;
+    background-color: $column_contra_color;
+    
+    &:first-child {
+      border: 0;
+    }
+  }
+}

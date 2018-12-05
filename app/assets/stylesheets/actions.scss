@@ -1,0 +1,83 @@
+// Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+@import 'constants';
+@import 'mixins';
+
+$action_block_back_color: white;
+
+// ---------------------------------------------
+
+.actions {
+  position: relative;
+}
+
+.actions a,
+a.action {
+  font-size: 0.84em;
+  text-transform: uppercase;
+  
+  &.important {
+    font-weight: bold;
+  }
+  &.disabled {
+    color: $weak_text_color;
+  }
+}
+a.link {
+  text-decoration: underline;
+}
+
+a.icon {
+  height: 1.1rem;
+  
+  img {
+    height: 100%;
+  }
+}
+
+.fav_toggle {
+  margin-left: 0.5rem;
+}
+
+.show_hide_block {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  display: none;
+  width: auto;
+  padding: 0.25rem 1rem;
+  @include clearfix;
+  background-color: $action_block_back_color;
+  border-radius: 0.25rem;
+  @include block_shadow;
+  
+  .closer {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    height: 1.1rem;
+    margin: 0;
+    
+    img {
+      height: 1rem;
+    }
+  }
+  
+  a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  .closer + a {
+    margin-left: 1rem;
+  }
+}
+
+section.procedure .actions .show_hide_block {
+  .closer + a {
+    margin-left: 1rem;
+  }  
+}

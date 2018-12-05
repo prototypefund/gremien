@@ -1,0 +1,81 @@
+// Place all general styles related to forms here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$help_color: $dark-gray;
+
+// --- FORM overrides --------------------------
+
+form .actions,
+.form_actions {
+  float: right;
+  width: auto;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+// --- FORM additions --------------------------
+
+.form_explanation {
+  margin: 1em 0;
+}
+
+.field_explanation {
+  margin-bottom: 0.25em;
+  font-size: 0.86em;
+  color: $help_color;
+}
+
+form {
+  .form_group {
+    display: none;
+    
+    &.initial_on {
+      display: block;
+    }
+  }
+  
+  .field_description {
+    padding: 0 0.5rem;
+  }
+  
+  .field {
+    label {
+      padding: 0 0.5rem;
+    }
+    
+    input[type=radio] {
+      margin-bottom: 0.5rem;
+    }
+    
+    input[type=radio] + label {
+      margin-left: 0.25rem;
+      padding-left: 0;
+    }
+    
+    input[type=checkbox] {
+      margin-bottom: 0.5rem;
+    }
+    input[type=checkbox] + label {
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    &.datetime {
+      select {
+        width: auto;
+      }
+    }
+  }
+  
+  .field_help {
+    margin-bottom: 0.25rem;
+    padding: 0 0.5rem;
+    color: $help_color;
+    font-size: 0.84rem;
+  }
+}
+

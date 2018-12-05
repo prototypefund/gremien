@@ -1,0 +1,100 @@
+// Place all the styles related to the title bar here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$titlebar_background: black;
+$titlebar_text: white;
+$menu_border_color: lighten( $titlebar_background, 30 );
+
+// ---------------------------------------------
+
+header {
+  @include clearfix;
+  position: fixed;
+  width: 100%;
+  color: $titlebar_text;
+  background-color: $titlebar_background;
+  z-index: 500;
+  
+  .g_titlebar {
+    @include clearfix;
+    
+    span.text_label {
+      display: none;
+      padding-top: 0.5rem;
+    }
+    img {
+      vertical-align: top;
+    }
+    
+    .g_titlebar_first,
+    .g_titlebar_last {
+      display: block;
+      float: left;
+      width: auto;
+      height: 2.5rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      
+      a {
+        display: inline-block;
+        height: 2.5rem;
+        font-weight: bold;
+        color: $titlebar_text;
+        
+        img {
+          height: 100%;
+          padding: 0.5rem;
+        }
+      }
+    }
+    
+    .g_titlebar_title {
+      width: auto;
+      padding: 0.5rem 0;
+      font-weight: bold;
+      text-align: center;
+      
+      &.export {
+        text-align: left;
+      }
+    }
+    
+    .g_titlebar_last {
+      float: right;
+    }
+  }
+  
+  .title_menu {
+    display: none;
+    clear: both;
+    padding: 0 0.25rem;
+    border-top: 1px solid $menu_border_color;
+    text-align: right;
+    
+    a {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-weight: bold;
+      color: $titlebar_text;
+      
+      &:first-child {
+        margin-top: 0.25rem;
+      }
+      &:last-child {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  header {
+    .g_titlebar {
+      span.text_label {
+        display: inline-block;
+      }
+    }
+  }
+}

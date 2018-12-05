@@ -1,0 +1,90 @@
+// Place all the styles related to the Ratings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+@import 'mixins';
+
+$vote_area_back: white;
+$cancel_button_backcolor: $weak_text_color;
+
+
+.spacer {
+  height: 10rem;
+}
+
+section.voting {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+  background-color: $vote_area_back;
+  border-top: 1px solid $border_color;
+  @include block_shadow;
+  text-align: center;
+  
+  .vote_button {
+    display: inline-block;
+    margin: 0.75rem 0.5rem;
+    padding: 0.5rem;
+    background-color: $cancel_button_backcolor;
+    border-radius: 3rem;
+    
+    &.cancel {
+      float: left;
+      width: auto;
+    }
+    &.yes {
+      background-color: $column_pro_color;
+    }
+    &.abstain {
+      background-color: $column_info_color;
+    }
+    &.no {
+      background-color: $column_contra_color;
+    }
+    
+    img {
+      width: 2.5rem;
+    }
+  }
+  
+  .button_group {
+    display: block;
+  }
+  
+  form {
+    display: none;
+    float: right;
+    width: auto;
+    
+    .vote_label {
+      display: inline-block;
+      font-weight: bold;
+    }
+    
+    button {
+      .vote_button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: $more_than_smartphone) {
+  section.voting {
+    height: 5.5rem;
+    
+    .vote_button img {
+      width: 3rem;
+    }
+  }
+  .page_receipts_new,
+  .page_receipts_edit {
+    section.procedure {
+      bottom: 5.5rem;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+// Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$account_back_color: white;
+
+
+.page_accounts_show,
+.page_visitors_show {
+  .my_account {
+    height: 9rem;
+    padding: 1.5rem;
+    background-color: $account_back_color;
+    border-bottom: 1px solid $border_color;
+  }
+  
+  .entities_list_title {
+    margin: 0;
+    padding-top: 1rem;
+    background-color: $accented_back_color;
+    border-top: 1px solid $border_color;
+  }
+  
+  .entities_list {
+    border-bottom: none;
+  }
+  
+  .account_procedures_list {
+    border-bottom: 1px solid $border_color;
+  }
+  
+  section.arguments {
+    .entities_list {
+      .preview .title {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@media (min-width: $width_two_columns) {
+  .page_accounts_show,
+  .page_visitors_show {
+    section.procedures,
+    section.arguments,
+    section.comments,
+    section.follows,
+    section.favs {
+      float: left;
+      width: 50%;
+      
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
+      border-bottom: 1px solid $border_color;
+    }
+  }
+}
+@media (min-width: $width_three_columns) {
+  .page_accounts_show,
+  .page_visitors_show {
+    section.procedures,
+    section.arguments,
+    section.comments,
+    section.follows,
+    section.favs {
+      width: 25%;
+    }
+  }
+}
+@media (min-width: $width_four_columns) {
+  .page_accounts_show,
+  .page_visitors_show {
+    section.procedures,
+    section.arguments,
+    section.comments,
+    section.follows,
+    section.favs {
+      position: absolute;
+      top: 11.5rem;
+      bottom: 0;
+      
+      float: none;
+      width: 20%;
+      
+      overflow: hidden;
+      
+      .entities_list {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    }
+    section.arguments {
+      left: 20%;
+    }
+    section.comments {
+      left: 40%;
+    }
+    section.favs {
+      left: 60%;
+    }
+    section.follows {
+      left: 80%;
+    }
+  }
+}

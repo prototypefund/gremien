@@ -1,0 +1,73 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+
+// ---------------------------------------------
+
+$flash_outer_back_color: black;
+$flash_back_color: white;
+$alert_back_color: $orange_light;
+$notice_back_color: $green_light;
+
+// ---------------------------------------------
+
+main {
+  #flash_layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $flash_outer_back_color;
+    opacity: 0.4;
+    z-index: 100;
+    
+    &.away {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in, visibility linear 0.55s;
+    }
+  }
+  
+  .flash {
+    position: absolute;
+    top: 2.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    text-align: center;
+    z-index: 101;
+    
+    &.up {
+      top: -7rem;
+      visibility: hidden;
+      transition: top 0.5s ease-in, visibility linear 0.55s;
+    }
+    
+    .content {
+      display: inline-block;
+      width: auto;
+      max-width: $text_container_width;
+      margin: 0 auto;
+      padding: 0rem 2rem;
+      background-color: $flash_back_color;
+      border: 3px solid darken( $flash_back_color, 20 );
+      border-top: none;
+      border-bottom-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      font-size: 1.19em;
+      font-weight: bold;
+      
+      &.alert {
+        background-color: $alert_back_color;
+        border-color: darken( $alert_back_color, 20 );
+      }
+      &.notice {
+        background-color: $notice_back_color;
+        border-color: darken( $notice_back_color, 20 );
+      }
+    }
+  }
+}

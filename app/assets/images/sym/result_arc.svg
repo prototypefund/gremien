@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" id="ebene1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 20" enable-background="new 0 0 30 20" xml:space="preserve">
+<rect x="0" y="0" width="30" height="20" fill="none"/>
+<path fill="none" stroke="none" stroke-width="1" d="M12,15 L5,19 A11.75,11.75 220 1 1 25,19 L18,15 A3.5,3.5 220 1 0 12,15 Z"/>
+<path fill="#dddddd" stroke="#777777" stroke-width="1" d="M12,15 L5,19 A11.75,11.75 60 0 1 6.25,5 L12.5,10.75 A3.5,3.5 60 0 0 12,15 Z"/>
+<path fill="#dddddd" stroke="#777777" stroke-width="1" d="M12.5,10.75 L6.25,5 A11.75,11.75 30 0 1 13,1.25 L14.25,9.75 A3.5,3.5 30 0 0 12.5,10.75 Z"/>
+<path fill="#dddddd" stroke="#777777" stroke-width="1" d="M14.25,9.75 L13,1.25 A11.75,11.75 130 0 1 25,19 L18,15 A3.5,3.5 130 0 0 14.25,9.75 Z"/>
+</svg>

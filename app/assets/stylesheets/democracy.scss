@@ -1,0 +1,52 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+
+// ---------------------------------------------
+
+.focus.democracy {
+  background-color: #63BBE3;
+  
+  p + .form_cancel {
+    margin-top: -1rem;
+  }
+  
+  .logo {
+    margin: 2rem 0 2rem;
+    text-align: center;
+    
+    img {
+      width: 90%;
+    }
+  }
+  .stores {
+    text-align: center;
+    
+    a {
+      display: inline-block;
+      margin: 0.5rem;
+      width: 70%;
+      max-width: 14rem;
+      
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .screenshot {
+    margin-top: 2rem;
+    text-align: center;
+    
+    img {
+      width: 90%;
+      max-width: 25rem;
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .focus.democracy {
+  }
+}

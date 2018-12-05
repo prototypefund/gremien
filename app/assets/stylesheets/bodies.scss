@@ -1,0 +1,39 @@
+// Place all the styles related to the Bodies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+// ---------------------------------------------
+
+.entity_action_graph {
+  background-color: $background_color;
+  border-bottom: 1px solid $border_color;
+  
+  a {
+    display: block;
+    padding: 0.75rem;
+    color: $link_color;
+    text-align: center;
+  }
+  
+  img {
+    margin-bottom: 0.5rem;
+    width: 10rem;
+  }
+}
+
+section.body {
+  padding: 0.75rem;
+  border-bottom: 1px solid $border_color;
+  
+  .title {
+    font-weight: normal;
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  section.body {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

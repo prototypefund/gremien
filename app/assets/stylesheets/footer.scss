@@ -1,0 +1,57 @@
+// Place all the styles related to the Info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+
+// ---------------------------------------------
+
+$footer_link_color: $text_color;
+$footer_link_hover_backgr: lighten( $background_color, 10 );
+
+// --- Links footer ----------------------------
+
+.link_footer {
+  @include clearfix;
+  min-height: 80vh;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  color: white;
+  
+  p {
+    padding: 1em;
+  }
+  a {
+    display: block;
+    float: left;
+    width: auto;
+    margin-right: 0.25rem;
+    padding: 0.5rem;
+    color: $footer_link_color;
+    border-radius: 0.25rem;
+    
+    &:hover {
+      color: $footer_link_color;
+      background-color: $footer_link_hover_backgr;
+    }
+  }
+  .logo {
+    height: 5.5rem;
+    margin-bottom: 0.25rem;
+    
+    img {
+      height: 100%;
+    }
+    &.bmbf {
+    }
+    &.prototype {
+    }
+    &.okf {
+    }
+    &.ethical {
+    }
+  }
+}

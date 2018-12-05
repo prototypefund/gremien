@@ -1,0 +1,195 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$show_three_columns: 750px;
+
+$nav_column_border_color: white;
+$link_backcolor: $white;
+
+// ---------------------------------------------
+
+.procedure_link {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.19rem;
+  background-color: $link_backcolor;
+}
+
+section.procedure {
+  @include clearfix;
+  background-color: $accented_back_color;
+  
+  .details {
+    @include clearfix;
+    background-color: $background_color;
+    
+    .title {
+      margin: 1rem 0;
+      padding: 0 1rem;
+    }
+    .text {
+      display: none;
+      margin: 0.5rem 0;
+      padding: 0 1rem;
+      overflow: hidden;
+      
+      &#procedure_text_short {
+        display: block;
+      }
+      
+      .abstract,
+      .description {
+        margin-bottom: 0;
+        column-width: 20rem;
+        
+        &.markdown_content {
+          margin: 0;
+        }
+      }
+      .abstract + .description {
+        margin-top: 1rem;
+      }
+      .url {
+        margin-top: 0.5rem;
+      }
+      .meta_info {
+        margin: 1rem 0;
+        color: $weak_text_color;
+        
+        .dates_block {
+          text-align: right;
+        }
+      }
+    }
+    .actions {
+      margin: 1rem 0;
+      padding: 0 1rem;
+      text-align: right;
+      
+      a {
+        white-space: nowrap;
+      }
+      a + a {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  
+  .attachments {
+    display: block;
+    margin: 0;
+    padding: 1rem;
+    
+    .attachments_list_title {
+      color: $weak_text_color;
+    }
+    .actions {
+      float: none;
+      display: block;
+    }
+  }
+}
+@media (min-width: $text_container_width) {
+  section.procedure {
+    .details {
+      @include clearfix;
+      float: left;
+      width: 66.66%;
+      
+      .dates_block {
+        float: right;
+        width: auto;
+      }
+      .proc_current_status {
+        margin: 1rem 2rem 0 0;
+      }
+    }
+    .attachments {
+      float: right;
+      width: 33.33%;
+      border: 0;
+    }
+  }
+}
+@media (min-width: $show_three_columns) {
+  section.procedure {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    right: 0;
+    bottom: 60%;
+    overflow: hidden;
+    
+    .details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 66.66%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      
+      .text {
+        display: block;
+        
+        &#procedure_text_short {
+          display: none;
+        }
+      }
+      .expander_text {
+        .collapser {
+          display: inline-block;
+        }
+        .expander {
+          display: none;
+        }
+      }
+    }
+    .attachments {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 33.33%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+}
+@media (min-width: $text_container_width * 2) {
+  section.procedure {
+    .details {
+      @include clearfix;
+      
+      .title,
+      .text {
+        float: left;
+        width: 73%;
+      }
+      .title {
+        margin: 1.5rem 0 1rem;
+        padding: 0 2rem;
+      }
+      .text {
+        padding: 0 2rem;
+      }
+      .actions {
+        margin: 1.5rem 0;
+        padding: 0 2rem;
+        
+        a {
+          display: block;
+          margin: 0.75rem 0;
+          padding: 0 0.5rem;
+        }
+      }
+    }
+    .attachments {
+      padding: 1.5rem 2rem;
+    }
+  }
+}

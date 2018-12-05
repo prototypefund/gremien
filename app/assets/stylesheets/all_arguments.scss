@@ -1,0 +1,143 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+@import 'constants';
+@import 'mixins';
+
+$show_three_columns: 750px;
+
+$nav_column_border: white;
+
+// ---------------------------------------------
+
+section.all_arguments {
+  
+  .arguments_nav {
+    @include clearfix;
+    z-index: 2;
+    
+    .nav_column {
+      position: relative;
+      float: left;
+      width: 33.33%;
+      padding: 0.3rem 0;
+      color: darken( $column_info_backcolor, 60 );
+      background-color: $column_info_color;
+      border-top: 2px solid $column_info_color;
+      border-left: 1px solid $nav_column_border;
+      border-right: 1px solid $nav_column_border;
+      border-bottom: 2px solid $nav_column_border;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      
+      .button_plus {
+        display: none;
+        position: absolute;
+        top: 1.5rem;
+        right: 0.5rem;
+        z-index: 1;
+      }
+      
+      &.active {
+        color: $inverse_text_color;
+        background-color: $column_info_color;
+        border-top-color: $nav_column_border;
+        border-bottom-color: $column_info_color;
+        cursor: unset;
+        
+        .button_plus {
+          display: block;
+        }
+      }
+      
+      &.pro {
+        color: darken( $column_pro_backcolor, 60 );
+        background-color: $column_pro_color;
+        border-top-color: $column_pro_color;
+        border-left-color: $column_pro_color;
+        
+        .button_plus {
+          background-color: $column_pro_color;
+        }
+        &.active {
+          color: $inverse_text_color;
+          border-top-color: $nav_column_border;
+          border-bottom-color: $column_pro_color;
+        }
+      }
+      &.contra {
+        color: darken( $column_contra_backcolor, 70 );
+        background-color: $column_contra_color;
+        border-top-color: $column_contra_color;
+        border-right-color: $column_contra_color;
+        
+        .button_plus {
+          background-color: $column_contra_color;
+        }
+        &.active {
+          color: $inverse_text_color;
+          border-top-color: $nav_column_border;
+          border-bottom-color: $column_contra_color;
+        }
+      }
+      
+    }
+  }
+  
+  .arguments_columns {
+    z-index: 1;
+    @include clearfix;
+  }
+}
+@media (min-width: $show_three_columns) {
+  section.all_arguments {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    @include block_shadow;
+    
+    .arguments_nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      @include block_shadow;
+      
+      .nav_column {
+        color: $inverse_text_color;
+        background-color: $column_info_color;
+        border: none;
+        cursor: unset;
+        
+        .button_plus {
+          display: block;
+          right: 1.5rem;
+        }
+        
+        &.pro {
+          color: $inverse_text_color;
+          background-color: $column_pro_color;
+        }
+        &.contra {
+          color: $inverse_text_color;
+          background-color: $column_contra_color;
+        }
+      }
+    }
+    .arguments_columns {
+      position: absolute;
+      top: 1.95rem;  // because a line shows
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+  }
+}

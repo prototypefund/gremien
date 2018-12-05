@@ -1,0 +1,130 @@
+// --- Stile für Markdown Tabelle --------------
+
+@import 'settings';
+@import 'constants';
+
+// --- FARBEN ----------------------------------
+
+$table_border: $border_color;
+$quote_color: $weak_text_color;
+$quote_border_color: lighten( $quote_color, 30 );
+
+$image_backgr: $medium-gray;
+$subtitle_color: $text_color;
+
+// --- TABELLE STIL ----------------------------
+
+.field_markdown_syntax,
+.markdown_content {
+  margin: 1em 0;
+  
+  &#markdown_syntax {
+    display: none;
+  }
+  
+  h1 {
+    font-size: 1.19*1.19rem;
+  }
+  h2 {
+    font-size: 1.19rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 1rem;
+    font-style: italic;
+  }
+  h5 {
+    font-size: 0.84rem;
+    text-transform: uppercase;
+  }
+  h6 {
+    font-size: 0.84rem;
+  }
+  
+  th {
+    padding: 0.2em 0.5em;
+    text-align: left;
+  }
+  td {
+    padding: 0.2em 0.5em;
+    &:first-child {
+      border-right: 1px solid $table_border;
+    }
+  }
+  
+  ul {
+    padding-left: 1.5em;
+    list-style: disc outside;
+  }
+  ol {
+    padding-left: 1.5em;
+    list-style: decimal outside;
+  }
+  
+  p {
+    @include clearfix;
+  }
+  
+  blockquote {
+    margin: 0.5rem 0;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px dotted $quote_border_color;
+    color: $quote_color;
+  }
+  
+  .image_container {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    background-color: $image_backgr;
+    @include clearfix;
+    
+    img {
+      float: none;
+      width: 100%;
+      margin: 0;
+      border: 0;
+      line-height: 1;
+    }
+    .subtitle {
+      padding: 0.5em 1em;
+      color: $subtitle_color;
+      background-color: $image_backgr;
+    }
+  }
+  
+  img {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    margin: 1em 2em 1em 0;
+  }
+  
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.field_markdown_syntax {
+  margin: 0.5rem 0;
+  font-size: 0.84em;
+  
+  table {
+    margin: 0.5rem 0;
+    border: 0;
+    
+    tbody {
+      background-color: transparent;
+      border: 0;
+    }
+  }
+  table + a {
+    padding: 0 0.5rem;
+  }
+}

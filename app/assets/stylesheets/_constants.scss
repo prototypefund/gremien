@@ -1,0 +1,74 @@
+// Place all the styles related to the Newsletters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'settings';
+
+// --- MEDIA WIDTHS ----------------------------
+
+$more_than_smartphone: 450px;
+$text_container_width: 40rem;
+
+$width_two_columns: 632px;
+$width_three_columns: 948px;
+$width_four_columns: 1264px;
+$width_five_columns: 1580px;
+
+// --- COLORS ----------------------------------
+
+$text_color: black;
+$weak_text_color: lighten( $text_color, 40 );
+$inverse_text_color: white;
+$date_color: $weak_text_color;
+
+$link_color: map-get( $foundation-palette, primary );
+$cancel_button_background: map-get( $foundation-palette, secondary );
+$danger_button_background: map-get( $foundation-palette, alert );
+
+$background_color: hsl(40, 10%, 95% );
+//$background_color: hsl(180, 10%, 95% );
+$border_color: darken( $background_color, 20 );
+$accented_back_color: darken( $background_color, 5 );
+$outer_back_color: darken( $background_color, 30 );
+
+$blue: hsl( 200, 100%, 40% );
+$red: hsl( 0, 100%, 45% );
+$orange_light: hsl( 30, 100%, 80% );
+$orange: hsl( 30, 100%, 40% );
+$yellow: hsl( 60, 100%, 40% );
+$green_light: hsl( 170, 50%, 85% );
+$green: hsl( 130, 100%, 25% );
+
+$vignette_border_color: white;
+
+$column_pro_color: #0f7e20; //hsl( 150, 100%, 33% );
+$column_info_color: #497181; //hsl( 220, 0%, 75% );
+$column_contra_color: #B91612; //hsl( 198, 56%, 41% );
+
+$column_pro_backcolor: #57bf6a; //hsl( 150, 50%, 85% );
+$column_info_backcolor: #7eabbb; //hsl( 220, 0%, 90% );
+$column_contra_backcolor: #f05146; //hsl( 198, 56%, 90% );
+
+/*
+$column_pro_color: hsl( 130, 70%, 35% );
+$column_info_color: hsl( 60, 100%, 25% );
+$column_contra_color: hsl( 10, 70%, 40% );
+
+$column_pro_backcolor: hsl( 130, 50%, 85% );
+$column_info_backcolor: hsl( 60, 50%, 75% );
+$column_contra_backcolor: hsl( 10, 50%, 90% );
+*/
+
+/*
+$column_pro_color: hsl( 90, 80%, 40% );
+$column_info_color: hsl( 40, 80%, 50% );
+$column_contra_color: hsl( 340, 70%, 50% );
+
+$column_pro_backcolor: hsl( 90, 80%, 80% );
+$column_info_backcolor: hsl( 40, 80%, 80% );
+$column_contra_backcolor: hsl( 340, 70%, 85% );
+*/
+
+// --- SHADOWS ---------------------------------
+
+$section_shadow: 0 1px 8px 0 rgba( 0,0,0,0.3 );

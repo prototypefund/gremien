@@ -1,0 +1,116 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$selector_title_backcolor: $accented_back_color;
+
+// ---------------------------------------------
+
+.procedure_selector_title {
+  @include clearfix;
+  padding: 0.5rem 0.75rem;
+  background-color: $selector_title_backcolor;
+  
+  .selector_key,
+  .selector_value {
+    display: inline-block;
+  }
+  .selector_value {
+    font-weight: bold;
+  }
+  .help {
+    float: right;
+    width: auto;
+    margin-left: 1rem;
+    display: inline-block;
+    color: $weak_text_color;
+    text-align: right;
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .procedure_selector_title {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.selectors_lists {
+  @include clearfix;
+  background-color: $background_color;
+}
+
+.selectors_list {
+  .procedure_selector_description {
+    padding: 0.25rem 0.75rem;
+    background-color: $selector_title_backcolor;
+  }
+  
+  .procedure_selector {
+    @include clearfix;
+    
+    a {
+      padding-right: 0.25rem;
+    }
+    
+    .arrow_icon {
+      float: right;
+      width: auto;
+      height: 1.5rem;
+    }
+    .count {
+      float: right;
+      width: auto;
+      margin-left: 0.5rem;
+      margin-right: 0.25rem;
+    }
+    .status {
+      font-weight: bold;
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .selectors_list {
+    .procedure_selector_title {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}
+@media (min-width: $width_two_columns) {
+  .selectors_lists {
+    .lists_first {
+      float: left;
+      width: 50%;
+    }
+    .lists_second {
+      float: right;
+      width: 50%;
+      border-left: 1px solid $border_color;
+    }
+  }
+}
+@media (min-width: $width_three_columns) {
+  .selectors_lists {
+    .lists_first {
+      width: 66.66%;
+      
+      .selectors_list {
+        float: left;
+        width: 50%;
+        
+        &.status {
+          border-left: 1px solid $border_color;
+        }
+      }
+    }
+    .lists_second {
+      width: 33.33%;
+    }
+  }
+}
+@media (min-width: $width_four_columns) {
+}
+@media (min-width: $width_five_columns) {
+}

@@ -1,0 +1,112 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$show_three_columns: 750px;
+$button_shadow: 0 0 8px 0 rgba( 0,0,0,0.5 );
+
+$help_text_color: rgba( 0,0,0,0.5 );
+
+// ---------------------------------------------
+
+.arguments_column {
+  min-height: 75vh;
+  padding: 1.5rem 3% 5rem;
+  background-color: $column_info_backcolor;
+  background: linear-gradient( to bottom, $column_info_color, $column_info_backcolor 5rem );
+  
+  &.active {
+    display: block;
+  }
+  
+  &.pro {
+    background-color: $column_pro_backcolor;
+    background: linear-gradient( to bottom, $column_pro_color, $column_pro_backcolor 5rem );
+  }
+  &.contra {
+    background-color: $column_contra_backcolor;
+    background: linear-gradient( to bottom, $column_contra_color, $column_contra_backcolor 5rem );
+  }
+  
+  .help {
+    padding: 3rem 2rem 1rem;
+    color: $help_text_color;
+    text-align: center;
+  }
+  
+  .column_link {
+    padding: 0rem 2rem 1rem;
+    color: $help_text_color;
+    text-align: center;
+  }
+}
+
+.arguments_columns {
+  .arguments_column {
+    display: none;
+    
+    &.active {
+      display: block;
+    }
+    
+    .arguments_list {
+      margin: 0;
+    }
+  }
+}
+
+.button_plus {
+  display: block;
+  width: 2.75rem;
+  padding: 0.25rem;
+  background-color: $column_info_color;
+  border-radius: 5rem;
+  box-shadow: $button_shadow;
+  
+  img {
+    width: 100%;
+  }
+}
+
+@media (min-width: $show_three_columns) {
+  .arguments_columns {
+    .arguments_column {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      min-height: auto;
+      padding: 0rem 1% 4rem;
+      background: none;
+      background-color: $column_info_backcolor;
+      overflow-x: hidden;
+      overflow-y: auto;
+      
+      &.pro,
+      &.info,
+      &.contra {
+        display: block;
+      }
+      &.pro {
+        left: 0;
+        width: 33.33%;
+      background-color: $column_pro_backcolor;
+      }
+      &.info {
+        left: 33.33%;
+        right: 33.33%;
+      }
+      &.contra {
+        right: 0;
+        width: 33.33%;
+        background-color: $column_contra_backcolor;
+      }
+      
+      .arguments_list {
+        margin: 1.5rem 0 1rem;
+      }
+    }
+  }
+}
+

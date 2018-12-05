@@ -1,0 +1,32 @@
+// MIXINS
+// ---------------------------------------------
+
+@mixin actions {
+  .actions {
+    @include clearfix;
+    
+    .front {
+      float: left;
+      width: auto;
+    }
+    .back {
+      float: right;
+      width: auto;
+      text-align: right;
+      
+      a {
+        margin-left: 0.5rem;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+
+@mixin block_shadow {
+  box-shadow: 0 1px 8px 0 rgba( 0,0,0,0.25 );
+}
+@mixin popup_shadow {
+  box-shadow: 0 1px 24px 0 rgba( 0,0,0,0.25 );
+}
+

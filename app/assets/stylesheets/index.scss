@@ -1,0 +1,115 @@
+// Place all the styles related to the index page here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$picture_border_color: white;
+
+$two_column_button_width: 410px;
+$two_column_width: 688px;
+$extra_wide: 1020px;
+
+
+// ---------------------------------------------
+
+.main_content {
+  @include clearfix;
+  padding: 1rem 4%;
+  
+  .title {
+    font-weight: normal;
+  }
+  p {
+    margin: 1em 0;
+  }
+}
+.main_buttons {
+  padding: 1rem 2% 0;
+  background-color: $accented_back_color;
+  
+  .big {
+    width: 100%;
+    padding: 0 2%;
+    
+    .button {
+      width: 100%;
+    }
+  }
+}
+.background {
+  clear: both;
+  height: 2rem;
+  background-color: $accented_back_color;
+}
+@media (min-width: $two_column_button_width) {
+  .main_buttons {
+    @include clearfix;
+    .big {
+      float: left;
+      width: 50%;
+      
+      &.info {
+        float: right;
+      }
+    }
+  }
+}
+@media (min-width: $two_column_width) {
+  .main_content {
+    float: left;
+    width: 50%;
+    padding: 1rem 2.5%;
+    
+    .title {
+      font-size: 1.19*1.19em;
+    }
+  }
+  .main_buttons {
+    float: left;
+    width: 50%;
+    
+    .big {
+      float: none;
+      width: 100%;
+    }
+  }
+  .picture {
+    float: left;
+    width: 50%;
+  }
+  .link_footer {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 1rem 2%;
+  }
+  .background {
+    height: 16rem;
+  }
+}
+@media (min-width: $extra_wide) {
+  .main_content {
+    width: 34%;
+  }
+  .main_buttons {
+    float: right;
+    width: 34%;
+    background-color: transparent;
+  }
+  .picture {
+    float: left;
+    width: 32%;
+  }
+  .link_footer {
+    float: none;
+    clear: both;
+    width: 32%;
+    margin: 0 auto;
+    background-color: $accented_back_color;
+  }
+  .background {
+    height: 25rem;
+  }
+}
+

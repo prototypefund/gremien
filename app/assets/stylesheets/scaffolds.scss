@@ -1,0 +1,52 @@
+@import 'settings';
+
+// ---------------------------------------------
+
+$papier: #fff;
+$error_back: hsl( 0, 80%, 40% );
+$error_text_back: hsl( 0, 50%, 90% );
+$error_title: $white;
+$error_title_back: hsl( 0, 50%, 60% );
+
+// ---------------------------------------------
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 0.125rem;
+  background-color: $error_back;
+  
+  label {
+    padding: 0.1em 0.5em 0;
+    color: $error_title;
+  }
+  input {
+    margin: 0;
+  }
+  
+  &:last-child {
+    margin-bottom: 1rem;
+  }
+}
+
+#error_explanation {
+  margin-bottom: 20px;
+  background-color: $error_text_back;
+  
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: $error_title_back;
+    color: #fff;
+  }
+  
+  ul {
+    padding: 0.5rem 1rem;
+    list-style: square outside;
+  }
+}

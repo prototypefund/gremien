@@ -1,0 +1,321 @@
+// Place all the styles related to the Procedures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+
+$selectors_backcolor: $background_color;
+
+$graph_backcolor: white;
+$sep_text_color: $text_color;
+$proc_backcolor: $background_color;
+$proc_border_color: $weak_text_color;
+
+$attach_backcolor: $accented_back_color;
+$antrag_backcolor: #ffeecc;
+$gesetz_backcolor: #ddddff;
+
+$proc_detail_backcolor: $background_color;
+$status_backcolor: darken( $accented_back_color, 20 );
+$for_vote_color: #e1f100;
+
+
+// ---------------------------------------------
+
+.selectors {
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  width: 11rem;
+  bottom: 0;
+  
+  padding: 1.5rem 1.5rem;
+  background-color: $selectors_backcolor;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  &.tags {
+    display: none;
+    left: auto;
+    right: 0;
+    width: 13rem;
+  }
+  
+  .selector_list_title {
+    padding: 0rem 0.5rem;
+    font-style: italic;
+  }
+  .selector_list {
+    margin: 0.5rem 0 1.5rem;
+    padding: 0;
+    font-size: 0.84rem;
+    list-style: outside none;
+    
+    li.selector {
+      display: block;
+      margin: 2px 0;
+      padding: 0.1rem 0.25rem 0.1rem 0.5rem;
+      background-color: $accented_back_color;
+      border-right: 0.25rem solid $accented_back_color;
+      cursor: pointer;
+      @include clearfix;
+      
+      &.selected {
+        background-color: darken( $accented_back_color, 10 );
+      }
+      
+      &[data-sel-id='38bc'] {
+        background-color: $antrag_backcolor;
+        
+        &.selected {
+          background-color: darken( $antrag_backcolor, 10 );
+        }
+      }
+      &[data-sel-id='db68'] {
+        background-color: $gesetz_backcolor;
+        
+        &.selected {
+          background-color: darken( $gesetz_backcolor, 10 );
+        }
+      }
+      &[data-sel-id='187c'] {
+        border-right: 0.25rem solid $column_pro_color;
+      }
+      &[data-sel-id='110d'] {
+        border-right: 0.25rem solid $column_contra_color;
+      }
+      &[data-sel-id='88da'] {
+        border-right: 0.25rem solid darken( $for_vote_color, 10 );
+      }
+      &[data-sel-id='bbe6'] {
+        border-right: 0.25rem solid $column_info_color;
+      }
+      
+      .title {
+        margin: 0;
+        font-size: 1em;
+        font-weight: normal;
+        line-height: inherit;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      
+      .count {
+        float: right;
+        width: 2rem;
+        font-size: 1em;
+        font-weight: normal;
+        text-align: right;
+      }
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .selectors {
+    width: 15rem;
+    
+    &.tags {
+      display: block;
+      width: 13rem;
+    }
+  }
+}
+
+.search_block {
+  position: absolute;
+  top: 2.5rem;
+  left: 11rem;
+  right: 0;
+  height: 3.5rem;
+  padding: 0.5rem 0;
+}
+@media (min-width: $more_than_smartphone) {
+  .search_block {
+    left: 15rem;
+    right: 13rem;
+  }
+}
+
+.procedures_graph {
+  position: absolute;
+  top: 6rem;
+  left: 11rem;
+  right: 0;
+  bottom: 0;
+  
+  @include clearfix;
+  margin: 0;
+  padding: 0.75rem;
+  background-color: $graph_backcolor;
+  border-top: 1px solid $border_color;
+  border-left: 1px solid $border_color;
+  border-right: 1px solid $border_color;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  li {
+    display: block;
+    
+    &.procedure_block {
+      position: relative;
+      float: left;
+      padding: 0.35rem;
+      
+      &.dimmed {
+        opacity: 0.2;
+      }
+      
+      .status {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        width: 1rem;
+        height: 1rem;
+        padding: 0.05rem;
+        color: white;
+        background-color: $status_backcolor;
+        border-radius: 1rem;
+        font-size: 0.84*0.84*0.84*0.84rem;
+        font-weight: bold;
+        text-align: center;
+        
+        &.cst_187c,
+        &.cst_110d,
+        &.cst_88da,
+        &.cst_bbe6 {
+          display: block;
+        }
+        &.cst_187c {
+          background-color: $column_pro_color;
+        }
+        &.cst_110d {
+          background-color: $column_contra_color;
+        }
+        &.cst_88da {
+          width: 1.25rem;
+          height: 1.25rem;
+          padding: 0.15rem 0;
+          color: $text_color;
+          background-color: $for_vote_color;
+          border: 1px solid darken( $for_vote_color, 10 );
+        }
+        &.cst_bbe6 {
+          background-color: $column_info_color;
+        }
+      }
+    }
+    
+    &.sort_separator {
+      clear: both;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.5rem 0.25rem;
+      color: $sep_text_color;
+      border-bottom: 1px solid $sep_text_color;
+      font-size: 1.19rem;
+      font-weight: bold;
+    }
+    
+    .procedure_mini {
+      position: relative;
+      display: block;
+      width: 3.5rem;
+      height: 3.5rem;
+      padding: 0.25rem;
+      color: $text_color;
+      background-color: $proc_backcolor;
+      border: 1px solid $proc_border_color;
+      font-size: 0.84*0.84*0.84*0.84*0.84rem;
+      overflow: hidden;
+      cursor: pointer;
+      
+      .title {
+        font-weight: normal;
+        line-height: 1.2;
+        text-overflow: clip;
+      }
+      .attachments {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1.2rem;
+        padding: 0.2rem;
+        background-color: $attach_backcolor;
+        border-top: 1px solid darken( $attach_backcolor, 5 );
+        
+        &.antrag {
+          background-color: $antrag_backcolor;
+          border-top: 1px solid darken( $antrag_backcolor, 5 );
+        }
+        &.gesetzgebung {
+          background-color: $gesetz_backcolor;
+          border-top: 1px solid darken( $gesetz_backcolor, 5 );
+        }
+        
+        img {
+          height: 0.84*0.84rem;
+          vertical-align: top;
+        }
+      }
+    }
+    .procedure_dialog_detail {
+      display: none;
+    }
+  }
+}
+@media (min-width: $more_than_smartphone) {
+  .procedures_graph {
+    left: 15rem;
+    right: 13rem;
+  }
+}
+
+.page_bodies_graph .dialog {
+  max-width: 40rem;
+  background-color: $proc_detail_backcolor;
+  border-radius: 0;
+  font-size: 1rem;
+  text-align: left;
+  
+  .procedure_dialog_detail {
+    @include clearfix;
+    padding: 0 0.5rem;
+    
+    a {
+      color: $text_color;
+    }
+    
+    .type {
+      font-style: italic;
+    }
+    .title {
+      margin-bottom: 0.5rem;
+    }
+    .abstract {
+      margin-bottom: 1rem;
+    }
+    .date {
+      color: $weak_text_color;
+    }
+    .attachments {
+      float: left;
+      height: 1.5rem;
+      margin-top: 1rem;
+      
+      img {
+        height: 100%;
+      }
+    }
+    .arguments_vignette {
+      float: right;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (min-width: $width_two_columns) {
+}

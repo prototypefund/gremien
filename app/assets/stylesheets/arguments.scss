@@ -1,0 +1,171 @@
+// Place all the styles related to the Arguments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'constants';
+@import 'mixins';
+
+$card_color: white;
+$card_border_color: darken( $card_color, 10 );
+$new_card_color: rgba( $card_color, 0.7 );
+$toggler_back_color: $accented_back_color;
+
+$status_text_color: $white;
+$new_status_color: darken( $red, 20 );
+$moderation_status_color: $orange;
+
+
+.argument_procedure_preview {
+  padding: 0.5rem;
+}
+
+.argument_preview,
+.argument_detail {
+  position: relative;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  
+  &.new,
+  &.moderation {
+    .status {
+      display: block;
+    }
+    .title,
+    .description,
+    .actions {
+      background-color: $new_card_color;
+    }
+  }
+  &.moderation > .status {
+    top: 0.6rem;
+    right: -1.6rem;
+    padding-top: 0.25rem;
+    background-color: $moderation_status_color;
+  }
+  
+  .status {
+    display: none;
+    position: absolute;
+    top: -0.8rem;
+    right: -1.4rem;
+    padding: 1rem 1.5rem 0.25rem 3rem;
+    color: $status_text_color;
+    background-color: $new_status_color;
+    font-size: 0.84rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate( 30deg );
+    z-index: 5;
+  }
+  
+  .title,
+  .description,
+  .actions {
+    margin: 0em;
+    padding: 0.5rem 1rem;
+    background-color: $card_color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .title {
+    padding: 1rem;
+  }
+  .description: {
+    padding-top: 0;
+  }
+  @include actions;
+}
+
+.arguments_list {
+  margin: 1.5rem 0 5rem;
+  padding: 0;
+  list-style: none outside;
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .argument_preview {
+    position: relative;
+    
+    .toggler {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.5rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      padding: 0.25rem;
+      background-color: $toggler_back_color;
+      border-radius: 1rem;
+      line-height: 1;
+      z-index: 1;
+      
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+      
+      &.expand {
+        display: none;
+      }
+      &.collapse {
+        display: block;
+        cursor: pointer;
+      }
+    }
+    
+    .title {
+      cursor: pointer;
+    }
+    
+    &.collapsed {
+      cursor: pointer;
+      
+      .toggler {
+        &.expand {
+          display: block;
+        }
+        &.collapse {
+          display: none;
+        }
+      }
+      .title {
+        cursor: inherit;
+      }
+      .description,
+      .actions,
+      .comments_list {
+        display: none;
+      }
+    }
+  }
+  .argument_preview + .argument_preview {
+    margin-top: 0.75rem;
+  }
+}
+
+.procedure_preview {
+  @include clearfix;
+  display: block;
+  padding: 1rem 0.75rem;
+  color: $text_color;
+  
+  &:hover {
+    color: $text_color;
+  }
+  
+  .icon {
+    float: left;
+    width: 2rem;
+    margin: 0.5rem 1rem 0.5rem 0;
+    
+    img {
+      width: 100%;
+    }
+  }
+  .title {
+    margin-bottom: 1rem;
+  }
+}
