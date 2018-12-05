@@ -1,0 +1,22 @@
+.form_help bisher
+
+%ul.moderatorships_list
+  - moderatorships.each do |mod|
+    %li.moderatorship{ id: mod.iid }
+      .email= mod.moderator.email
+      = link_to mod, method: :delete, remote: true, class: 'action_delete', confirm: "Wollen Sie diese/n ModeratorIn wirklich löschen?" do
+        = image_tag 'sym/delete_r100.svg'
+      
+    
+  
+  - if moderatorships.size < Rateable::RATINGS_REQUIRED
+    %li.description.alert
+      Es fehlen noch
+      %strong
+        mindestens
+        = Rateable::RATINGS_REQUIRED - moderatorships.size
+      
+      ModeratorInnen
+    
+  
+
