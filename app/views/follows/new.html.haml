@@ -1,0 +1,32 @@
+- h_title 'Neuer Folgeauftrag'
+- h_titlebar_icon 'back_arrow', @follow.entity
+- h_titlebar_text 'Neuer Folgeauftrag'
+
+- unless h_visitor_saw?( 'follow_intro' )
+  - content_for :dialog_content do
+    %p
+      %strong Folgen bedeutet...
+      %br
+      dass Sie per E-Mail Benachrichtigungen bekommen, wenn zum Vorhaben etwas Neues passiert.
+    
+  
+  - content_for :dialog_actions do
+    = link_to 'Nein, danke', procedure_path( @follow.entity, saw: :follow_intro ), class: 'button cancel'
+    = link_to 'Weiter', new_procedure_follow_path( @procedure, saw: :follow_intro ), class: 'button'
+  
+  = render 'general/dialog'
+
+.entity_form
+  
+  .form_help Wir senden Neuigkeiten zu:
+  
+  .argument_procedure_preview
+    .title= @follow.entity.title
+  
+  .form_help an folgende Adresse:
+  %br
+  
+  = render 'form'
+  
+  .form_cancel= link_to 'Zurück', @follow.entity, class: 'button cancel'
+

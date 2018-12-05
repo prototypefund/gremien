@@ -1,0 +1,28 @@
+= form_for [ @follow.entity, @follow ] do |f|
+  - if @follow.errors.any?
+    #error_explanation
+      %h2
+        = @follow.errors.count
+        Fehler verhinden, dass der Folgeauftrag gespeichert werden kann.
+      
+      %ul
+        - @follow.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  = f.hidden_field :author_id
+  
+  = f.fields_for :author do |ff|
+    .field
+      = ff.label :email, 'E-Mail-Adresse'
+      .field_help= t( '.email_usage' ).html_safe
+      
+      = ff.email_field :email, placeholder: 'hanna@muster.de'
+    
+  
+  .actions
+    = f.submit 'Speichern', class: 'button'
+  
+

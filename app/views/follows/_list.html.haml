@@ -1,0 +1,15 @@
+- if follows.count > 0
+  .entities_list_title
+    = pluralize follows.count, 'Folgeauftrag'
+  
+  %ul.entities_list.follows_list
+    - follows.each do |follow|
+      %li{ id: follow.iid }
+        = link_to follow.entity, class: 'preview' do
+          .explanation Sie folgen
+          .title= truncate follow.entity.title, length: 255
+        
+      
+    
+  
+
