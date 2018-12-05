@@ -1,0 +1,38 @@
+- h_title "Intro zu Gremien"
+- h_description @procedure.description
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Vorhaben'
+
+.main_content
+  %h4
+    Was passiert hier?
+  
+  %p
+    Dies ist ein Mitwirkungsforum zu einem
+    %strong
+      Vorhaben
+      = "des #{@procedure.body.name}" if @procedure.body
+    
+  
+  %p
+    %strong Informieren & Einmischen
+  
+  %p
+    Hier kann man einsehen, was geplant ist und dann Argumente dafür oder dagegen sammeln.
+  
+  %p
+    Diese Sammlung informiert viele andere Menschen in konzentrierter Form.
+  
+  %p
+    Sie wird
+    %strong vor der Abstimmung
+    zusammengefasst an
+    %strong die Abgeordneten versendet. 
+    Damit besteht die Chance, die konkrete Entscheidung im Sinne der BürgerInnen zu beeinflussen.
+  
+  %p
+    = link_to 'Was zu sehen ist', intro_views_procedure_path( @procedure ), class: 'button'
+    &nbsp;
+    = link_to 'Zurück zum Vorhaben', @procedure, class: 'button'
+  
+

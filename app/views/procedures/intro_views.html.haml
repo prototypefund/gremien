@@ -1,0 +1,119 @@
+- h_title "Intro zu Vorhaben - Anzeige"
+- h_description @procedure.description
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text t( 'labels.procedure' )
+
+%section.procedure
+  .preview
+    .title Titel
+    .text#procedure_text
+      .description.markdown_content
+        Beschreibung des Vorhabens
+      
+      .url= link_to 'Link zu mehr Infos &rarr;'.html_safe, '#'
+      
+    .expander_text{ data: { sel: '#procedure_text', action: 'text_expand' } }
+      = image_tag 'sym/expander_s50.svg', class: 'expander'
+      = image_tag 'sym/collapser_s50.svg', class: 'collapser'
+    
+    .intro_views
+      .dialog.embedded
+        .dialog_content
+          %p
+            Die Bereiche:
+          
+          %p
+            Was an welcher Stelle steht.<br/>
+            Klicken Sie z.B. den Aufklapper oder die weissen Argument-Karten
+            
+          
+        
+        .dialog_actions
+          = link_to 'Weiter', intro_actions_procedure_path( @procedure ), class: 'button'
+        
+      
+    
+  
+  .attachments
+    .attachments_list_title
+      Weitere Dokumente zum Vorhaben
+    
+    %ul.attachments_list
+      %li
+        = link_to '#', class: 'attachment', target: '_blank' do
+          = image_tag 'sym/document_s100.svg', class: 'icon'
+          Eine Datei
+        
+      
+      %li
+        = link_to '#', class: 'attachment', target: '_blank' do
+          = image_tag 'sym/document_s100.svg', class: 'icon'
+          Noch eine Datei
+        
+      
+    
+  
+
+%section.all_arguments
+  %nav.arguments_nav
+    .nav_column.pro{ data: { kind: 'pro' } }
+      Pro
+    
+    .nav_column.info.active{ data: { kind: 'info' } }
+      Infos
+    
+    .nav_column.contra{ data: { kind: 'contra' } }
+      Contra
+    
+  
+  .arguments_columns
+    .arguments_column.pro{ data: { kind: 'pro' } }
+      %ul.arguments_list
+        %li.argument_preview.collapsed
+          .title Titel des Pro-Arguments
+          .description Beschreibung dazu
+          %ul.comments_list
+            %li.comment
+              Text eines Kommentares
+            
+          
+        
+        %li.argument_preview.collapsed
+          .title Titel des Pro-Arguments
+          .description Beschreibung dazu
+        
+      
+    
+    .arguments_column.info.active{ data: { kind: 'info' } }
+      %ul.arguments_list
+        %li.argument_preview.collapsed
+          .title Titel der Information
+          .description Beschreibung dazu
+          
+          %ul.comments_list
+            %li.comment
+              Text eines Kommentares
+            
+            %li.comment
+              Text eines Kommentares
+            
+          
+        
+      
+    
+    .arguments_column.contra{ data: { kind: 'contra' } }
+      %ul.arguments_list
+        %li.argument_preview.collapsed
+          .title Titel des Contra-Arguments
+          .description Beschreibung dazu
+          
+          %ul.comments_list
+            %li.comment
+              Text eines Kommentares
+            
+          
+        
+      
+    
+  
+

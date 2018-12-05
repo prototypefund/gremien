@@ -1,0 +1,34 @@
+- h_title 'Vorhaben aktiviert'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Aktivierung'
+
+.entity_form.centered
+  %h4 Vorhaben ist aktiviert!
+  
+  - if @procedure.group_moderation?
+    %p
+      Wir haben die angegebenen
+      = @procedure.moderators.size
+      ModeratorInnen informiert
+      %br
+      und um Bestätigung gebeten.
+    
+  
+  - if @procedure.kind == 'link'
+    %p
+      Mitwirkende finden Ihr Vorhaben
+      %strong nicht
+      in den Listen,
+      %br
+      sondern
+      %strong nur über diesen Link
+      hier:
+    
+    %p.procedure_link
+      = procedure_url @procedure
+    
+  
+  .actions
+    = link_to 'Weiter', @procedure, class: 'button'
+  
+

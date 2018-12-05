@@ -1,0 +1,26 @@
+- h_title 'Abstimmen via DEMOCRACY'
+- h_description 'Zu diesem Vorhaben kann hier direkt mitgewirkt werden. Eine Abstimmung dazu ist allerdings nur via DEMOCRACY App möglich'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Abstimmen'
+
+.focus_content
+  .focus.democracy
+    .text_block
+      %h4 Abstimmung via DEMOCRACY
+      %p
+        Zu diesem Vorhaben kann nur über die DEMOCRACY App abgestimmt werden.
+      
+      .form_cancel
+        = link_to 'Zurück', @procedure, class: 'button cancel'
+      
+      %p.logo= image_tag 'democracy_logo.png'
+      
+      %p.stores
+        = link_to image_tag( 'democracy_app.png' ), 'https://www.democracy-deutschland.de/invite/DEC58C3E'
+        = link_to image_tag( 'democracy_play.png' ), 'https://www.democracy-deutschland.de/invite/DEC58C3E'
+      
+      %p.screenshot= image_tag 'democracy_screen.png'
+      
+    
+  
+

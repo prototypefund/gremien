@@ -1,0 +1,9 @@
+- h_title 'Neues Mitwirkungsforum'
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Neues Mitwirkungsforum'
+
+.entity_form
+  = render 'form_s1', procedure: @procedure
+  
+  .form_cancel= link_to 'Abbrechen', bodies_path, class: 'button cancel'
+

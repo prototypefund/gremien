@@ -1,0 +1,19 @@
+- h_title 'Liste ' + @titlebar_text
+- h_description @page_description
+- h_titlebar_icon 'back_arrow', @body
+- h_titlebar_text @titlebar_text
+
+.procedure_selector_title
+  .vignette= @procedures.size
+  Vorhaben
+  - if @select_key
+    .selector_key
+      mit
+      = @select_key
+    
+    .selector_value= @select_value
+  
+  .help sortiert nach Favoriten, dann Datum
+
+= render 'index', procedures: @procedures, new_action: ( @body and !@body.bundestag? )
+

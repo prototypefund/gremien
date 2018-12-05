@@ -1,0 +1,18 @@
+- h_title 'Mitwirkungsforum bearbeiten'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Mitwirkungsforum bearbeiten'
+
+.entity_form
+  = render "form_s#{session[ :proc_edit_step ]}", procedure: @procedure
+  
+  - if session[ :proc_edit_step ] == 1
+    .form_cancel= link_to 'Abbrechen', @procedure, class: 'button cancel'
+  - else
+    .form_cancel
+      = link_to 'Zurück', edit_procedure_path( @procedure, go: :back ), class: 'button cancel'
+      - if @procedure.next_step( session[ :proc_edit_step ] ) == session[ :proc_edit_step ]
+        = link_to 'Fertig', @procedure, class: 'button'
+      
+    
+  
+

@@ -1,0 +1,13 @@
+- h_title 'Ihre Stimme'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Ihre Stimme'
+
+.entity_form
+  %h4 Keine Abstimmung möglich
+  %p
+    Zu diesem Vorhaben ist keine Abstimmung vorgesehen.
+  
+  .form_cancel
+    = link_to 'Abbrechen', @procedure, class: 'button cancel'
+  
+

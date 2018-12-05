@@ -1,0 +1,40 @@
+- first = h_partial_init first, false
+
+= form_for procedure do |f|
+  - if procedure.errors.any?
+    #error_explanation
+      %h2
+        = procedure.errors.count
+        Fehler!
+        %br
+        Mitwirkungsforum kann nicht angelegt werden.
+      
+      %ul
+        - procedure.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    .form_explanation Wer darf bei dem Vorhaben mitwirken?
+    = f.radio_button :kind, :open
+    = f.label :kind, "<strong>Öffentlich:</strong> jeder kann mitwirken".html_safe, value: :open
+    %br
+    = f.radio_button :kind, :link
+    = f.label :kind, "<strong>Gruppe:</strong> nur mit speziellem Link".html_safe, value: :link
+    - if false
+      %br
+      = f.radio_button :kind, :account
+      = f.label :kind, "<strong>Ausgewählte:</strong> nur mit E-Mail Einladung".html_safe, value: :account
+    
+  
+  %br
+  .field
+    = f.label :title, 'Um was geht es in dem Vorhaben?'
+    = f.text_field :title, autofocus: true, placeholder: 'Kurze Zusammenfassung in einem Satz'
+  
+  .actions
+    = f.submit t( 'actions.save' ), class: 'button'
+  
+

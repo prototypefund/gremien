@@ -1,0 +1,73 @@
+- with_expander = h_partial_init with_expander, true
+- with_actions = h_partial_init with_actions, true
+- new_tab = h_partial_init new_tab, false
+- # --------------------------------------------
+- target = new_tab ? '_blank' : nil
+
+.details
+  .title= procedure.title
+  
+  .text#procedure_text_short
+    = procedure.description_short
+  
+  .text#procedure_text{ style: with_expander ? nil : 'display: block' }
+    - unless procedure.abstract.blank?
+      .abstract= procedure.abstract
+    
+    .description.markdown_content
+      = h_markdown procedure.description
+    
+    - unless procedure.url.blank?
+      .url= link_to t( '.more_info_link' ).html_safe, procedure.url, target: '_blank'
+    
+    = render 'procedures/proc_meta_info', procedure: procedure
+  
+  - if with_expander
+    .expander_text{ data: { sel: '#procedure_text, #procedure_text_short', action: 'text_expand' } }
+      .expander
+        =t '.show_more'
+        %br
+        = image_tag 'sym/expander_s50.svg', class: 'expander'
+      
+      = image_tag 'sym/collapser_s50.svg', class: 'collapser'
+    
+  
+  - if with_actions
+    .actions
+      - if h_editable? procedure
+        = link_to t( 'actions.edit' ), edit_procedure_path, class: ( !procedure.activatable? or procedure.published? ) ? 'important' : nil, target: target
+        - unless procedure.published?
+          = link_to t( 'actions.activate' ), activate_procedure_path, method: :put, class: procedure.activatable? ? 'important' : 'disabled'
+        
+      
+      - if procedure.published?
+        - unless h_followed? procedure
+          = link_to t( 'actions.subscribe' ), new_procedure_follow_path( procedure ), target: target
+        - else
+          = link_to t( 'actions.dont_subscribe' ), procedure.follow_for( current_visitor ), method: :delete, target: target
+        
+        = render 'share_link', procedure: procedure
+        = render 'favs/fav_toggle', entity: procedure
+      
+    
+  
+
+.attachments
+  .attachments_list_title
+    - if procedure.attachments.blank?
+      =t '.no_documents'
+    - else
+      = pluralize procedure.attachments.size, 'Dokument'
+      zum Vorhaben
+    
+  
+  - if h_editable?( procedure ) and with_actions
+    .actions
+      .front
+        = link_to t( 'actions.upload_doc' ), new_procedure_attachment_path( procedure )
+    
+  
+  - unless procedure.attachments.blank?
+    = render 'attachments/attachments_list', attachments: procedure.attachments
+  
+

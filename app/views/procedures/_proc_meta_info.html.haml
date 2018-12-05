@@ -1,0 +1,26 @@
+.meta_info
+  .dates_block
+    - if procedure.submission_at
+      =t '.submitted_at'
+      =l procedure.submission_at, format: :short_day
+    
+    - if procedure.last_change_at
+      %br
+      =t '.last_change_at'
+      =l procedure.last_change_at, format: :short_day
+    
+    - if procedure.votable?
+      %br
+      =t '.vote_at'
+      =l procedure.vote_date_at, format: :short_day_time
+      - unless procedure.vote_end_at.blank?
+        %br
+        =t '.vote_end'
+        =l procedure.vote_end_at, format: :short_day_time
+      
+    
+  
+  .proc_current_status{ class: "cst_#{procedure.current_status_selector_id}", title: "Status: #{procedure.current_status}" }
+    = procedure.current_status_short
+  
+

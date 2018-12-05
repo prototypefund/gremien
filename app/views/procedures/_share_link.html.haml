@@ -1,0 +1,7 @@
+= link_to t( 'actions.share' ), '#share_block', data: { action: 'show_hide', kind: 'fade' }
+
+.show_hide_block#share_block
+  = link_to image_tag( 'sym/close_s25.svg' ), '#share_block', class: 'closer', data: { action: 'show_hide', kind: 'fade' }
+  = h_mail_link t( 'actions.share_email' ), procedure
+  = link_to t( 'actions.share_embed' ), new_procedure_export_path( procedure )
+

@@ -1,0 +1,24 @@
+%li.proc_list_preview{ id: procedure.iid }
+  = link_to procedure, class: 'preview' do
+    .text
+      .title
+        = truncate procedure.title, length: 100
+      
+      .description
+        = h_markdown_strip procedure.abstract || procedure.description, 250
+      
+    
+    .infos
+      - if procedure.last_change_at || procedure.submission_at
+        .date=l procedure.last_change_at || procedure.submission_at, format: :short_day
+      
+      = render 'procedures/fav_display', entity: procedure
+    
+    .infos
+      .proc_current_status{ class: "cst_#{procedure.current_status_selector_id}" }
+        = procedure.current_status_short
+      
+      = render 'procedures/arguments_vignette', procedure: procedure
+    
+  
+

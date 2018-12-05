@@ -1,0 +1,59 @@
+- h_title "Meinungsbild - #{@procedure.title}"
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Meinungsbild'
+
+.small_content.procedure_result
+  %h4
+    Meinungsbild zum Vorhaben
+    %br
+    %strong= @procedure.title
+  
+  - unless @procedure.votes_sum > 0
+    %p
+      Es sind keine Stimmen eingegangen.
+    
+  - else
+    .result_graph
+      .labels
+        - Procedure::RESULT_KINDS.each do |kind|
+          - width = @procedure.relative_votes_for( kind )
+          - if width > 0
+            .block{ class: kind }= "#{width}%"
+          
+        
+      .blocks
+        - Procedure::RESULT_KINDS.each do |kind|
+          - width = @procedure.relative_votes_for( kind )
+          - if width > 0
+            .block{ class: kind, style: "width: #{width*0.97}%;" }
+              - if width > 12
+                = "#{width}%"
+              - else
+                &nbsp;
+              
+            
+          
+        
+      
+    
+    %table
+      - Procedure::RESULT_KINDS.each do |kind|
+        %tr
+          %td
+            =t "labels.#{kind}"
+            \:
+          
+          %td.absolute
+            = @procedure.votes_for( kind )
+          
+          %td.relative
+            = "#{@procedure.relative_votes_for( kind )}%"
+          
+        
+      
+    
+  %br
+  .actions
+    = link_to 'Zurück', @procedure, class: 'button'
+  
+

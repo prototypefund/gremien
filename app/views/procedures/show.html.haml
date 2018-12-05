@@ -1,0 +1,29 @@
+- h_title "#{t '.procedure_name'}: #{@procedure.title}"
+- h_description @procedure.description || @procedure.abstract
+- h_titlebar_icon 'back_arrow', body_path( @procedure.body ) + "##{@procedure.iid}", 'Gremium'
+- h_titlebar_text t( '.procedure_name' )
+
+- unless h_visitor_saw? 'procedure_intro'
+  - content_for :dialog_content do
+    %p
+      =t '.dialog_where'
+      - if h_for_body? @procedure
+        des
+        = @procedure.body.name
+      
+    
+  
+  - content_for :dialog_actions do
+    = link_to t( '.whats_going' ), intro_what_procedure_path( @procedure, saw: :procedure_intro ), class: 'button'
+    = link_to t( '.short_intro' ), intro_views_procedure_path( @procedure, saw: :procedure_intro ), class: 'button'
+    = link_to t( '.no_thanks' ), procedure_path( @procedure, saw: :procedure_intro ), class: 'button cancel'
+  
+  = render 'general/dialog', show_after: 45
+
+%section.procedure
+  = render 'show_procedure', procedure: @procedure
+
+%section.all_arguments
+  = render 'show_arguments', procedure: @procedure
+
+= render 'vote_area', procedure: @procedure

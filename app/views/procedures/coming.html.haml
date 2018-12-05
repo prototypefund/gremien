@@ -1,0 +1,15 @@
+- h_title 'Liste ' + @titlebar_text
+- h_description @page_description
+- h_titlebar_icon 'back_arrow', @body
+- h_titlebar_text @titlebar_text
+
+.procedure_selector_title
+  .vignette= @deals.size
+  demnächst im Bundestag behandelte Vorhaben
+  .help sortiert nach Datum
+
+%ul.entities_list.deals_list
+  - @deals.each do |deal|
+    = render 'procedures/deal_coming_preview', deal: deal
+  
+

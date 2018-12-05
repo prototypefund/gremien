@@ -1,0 +1,23 @@
+- h_title "Vorhaben nicht bereit! - #{@procedure.title}"
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'nicht bereit!'
+
+.entity_form.centered
+  %h4 Vorhaben ist noch nicht bereit!
+  
+  - if @procedure.group_moderation? and @procedure.moderators.size < Rating::RATINGS_REQUIRED
+    %p
+      Es fehlen mindestens
+      = Rating::RATINGS_REQUIRED - @procedure.moderators.size
+      ModeratorInnen!
+    
+  
+  - if @procedure.kind == 'account'
+    %p
+      Es sind noch keine Mitwirkende eingetragen!
+    
+  
+  .actions
+    = link_to 'Weiter', @procedure, class: 'button'
+  
+

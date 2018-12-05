@@ -1,0 +1,15 @@
+- new_action = h_partial_init new_action, true
+
+%ul.entities_list.procedures_list
+  - if new_action
+    %li.entity_action_new
+      = link_to 'Neues Vorhaben...', h_new_procedure_path, class: 'button'
+      %p.help Bringen Sie ein neues Vorhaben zur Mitwirkung ein
+    
+  
+  - procedures.each do |procedure|
+    - cache_unless ( h_faved?( procedure ) or h_dissed?( procedure ) ), procedure do
+      = render 'procedures/proc_list_preview', procedure: procedure
+    
+  
+

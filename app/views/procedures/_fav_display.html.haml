@@ -1,0 +1,17 @@
+.fav_display{ id: "fav_display_#{entity.iid}" }
+  - faved = h_faved?( entity )
+  - dissed = h_dissed?( entity )
+  
+  - if entity.favs.up.size > 0
+    = image_tag "sym/arrow_up_#{ faved ? 'blue_fill' : 'gray' }.svg", class: 'vignette_sym'
+    .vignette_text{ class: faved ? 'hilite' : nil }
+      = entity.favs.up.size
+    
+  
+  - if entity.favs.down.size > 0
+    = image_tag "sym/arrow_down_#{ dissed ? 'blue_fill' : 'gray' }.svg", class: 'vignette_sym'
+    .vignette_text{ class: dissed ? 'hilite' : nil }
+      = entity.favs.down.size
+    
+  
+

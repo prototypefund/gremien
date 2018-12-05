@@ -1,0 +1,35 @@
+- first = h_partial_init first, false
+
+%h5 Schritt 4: Moderation
+
+= form_for procedure do |f|
+  - if procedure.errors.any?
+    #error_explanation
+      %h2
+        = procedure.errors.count
+        Fehler verhindern, dass dieses Mitwirkungsforum erzeugt werden kann:"
+      %ul
+        - procedure.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    .form_explanation Wer soll die Moderation durchführen?
+    = f.radio_button :mod_kind, :none
+    = f.label :kind, "<strong>Niemand:</strong> bitte keine Moderation".html_safe, value: :none
+    %br
+    = f.radio_button :mod_kind, :owner
+    = f.label :kind, "<strong>EignerIn:</strong> ich alleine".html_safe, value: :owner
+    %br
+    = f.radio_button :mod_kind, :group
+    = f.label :kind, "<strong>Gruppe:</strong> ich gebe E-Mail Adressen an".html_safe, value: :group
+    %br
+    = f.radio_button :mod_kind, :crowd
+    = f.label :kind, "<strong>Crowd:</strong> zufällige ModeratorInnen".html_safe, value: :crowd
+  
+  .actions
+    = f.submit t( 'actions.save' ), class: 'button'
+  
+

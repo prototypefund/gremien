@@ -1,0 +1,33 @@
+- first = h_partial_init first, false
+
+%h5 Schritt 3: Terminierung
+
+= form_for procedure do |f|
+  - if procedure.errors.any?
+    #error_explanation
+      %h2
+        = procedure.errors.count
+        Fehler verhindern, dass dieses Mitwirkungsforum erzeugt werden kann:"
+      %ul
+        - procedure.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field.datetime
+    = f.label :submission_at, 'Wann wurde das Vorhaben eingereicht?'
+    = f.date_select :submission_at
+  
+  .field.datetime
+    = f.label :vote_date_at, 'Ab wann darf über das Vorhaben abgestimmt werden?'
+    = f.datetime_select :vote_date_at
+  
+  .field.datetime
+    = f.label :vote_end_at, 'Bis wann darf über das Vorhaben abgestimmt werden?'
+    = f.datetime_select :vote_end_at
+  
+  .actions
+    = f.submit t( 'actions.save' ), class: 'button'
+  
+

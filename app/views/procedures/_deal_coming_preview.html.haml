@@ -1,0 +1,35 @@
+%li.deal_list_preview{ id: deal.iid }
+  .deal_info
+    .deal_date=l deal.deal_at, format: :short_day_time
+    .action
+      = deal.action
+      &nbsp;&nbsp;&nbsp;
+      = deal.location
+    
+    - if deal.url
+      = link_to 'Zugehöriger Artikel&nbsp;&rarr;'.html_safe, deal.url, class: 'deal_url'
+    
+  
+  = link_to deal.procedure, class: 'preview' do
+    .text
+      .title
+        = truncate deal.procedure.title, length: 100
+      
+      .description
+        = h_markdown_strip deal.procedure.abstract || deal.procedure.description, 250
+      
+    
+    .infos
+      - if deal.procedure.last_change_at || deal.procedure.submission_at
+        .date=l deal.procedure.last_change_at || deal.procedure.submission_at, format: :short_day
+      
+      = render 'procedures/fav_display', entity: deal.procedure
+    
+    .infos
+      .proc_current_status{ class: "cst_#{deal.procedure.current_status_selector_id}" }
+        = deal.procedure.current_status_short
+      
+      = render 'procedures/arguments_vignette', procedure: deal.procedure
+    
+  
+

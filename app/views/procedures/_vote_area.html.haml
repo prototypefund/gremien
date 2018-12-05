@@ -1,0 +1,28 @@
+- export = h_partial_init export, nil
+- if export
+  - procedure = export.procedure
+
+
+.vote_area
+  - unless export and export.hide_voting?
+    - if procedure.vote_done?
+      = link_to result_procedure_path( procedure ), class: 'vote_tab result' do
+        = image_tag 'sym/result_arc.svg'
+        %br
+        =t '.vote_results'
+      
+    - elsif current_visitor? and procedure.voted_by? current_visitor
+      .vote_tab.done=t 'actions.voted'
+      
+    - elsif current_visitor? and procedure.vote_link_for? current_visitor
+      .vote_tab.done=t 'actions.link_requested'
+      
+    - else
+      = link_to vote_procedure_path( procedure ), class: 'vote_tab action', target: h_actions_target do
+        = image_tag 'sym/result_arc.svg'
+        %br
+        =t 'actions.vote'
+      
+    
+  
+

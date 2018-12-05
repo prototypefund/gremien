@@ -1,0 +1,72 @@
+- h_title "Intro zu Vorhaben - Aktionen"
+- h_description @procedure.description
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Vorhaben'
+
+%section.intro_actions
+  %ul.actions_list
+    %li.action
+      .actions= link_to t( 'actions.subscribe' ), '#'
+      .description
+        %p Folgen Sie einem Vorhaben, wenn Sie Benachrichtigungen bei neuen Beiträgen oder zur Abstimmung bekommen wollen.
+      
+    
+    %li.action
+      .actions= link_to t( 'actions.share' ), '#'
+      .description
+        %p Leiten Sie ein Vorhaben weiter, wenn Sie eine E-Mail mit diesem Vorhaben und der URL dazu an jemand anderen senden wollen.
+      
+    
+    %li.action
+      .actions= link_to t( 'actions.fav' ), '#'
+      .description
+        %p
+          Favorisieren Sie ein Vorhaben/ Argument/ Kommentar, um es als wichtig zu kennzeichnen.
+        
+        %p
+          Damit steigt es in der Liste der Vorhaben/ Argumente/ Kommentare nach oben.
+      
+    
+    %li.action
+      .vignette 2
+      .vignette.hilite 3
+      .description
+        %p
+          Die Zahlen im Kreis geben an, wieviele Menschen schon favorisiert/ kommentiert haben.
+        %p
+          Ist der Kreis blau, haben Sie selbst auch favorisiert/ kommentiert.
+        
+      
+    
+    %li.action
+      .actions
+        = link_to image_tag( 'sym/plus_w100.svg' ), '#', class: 'button_plus'
+      
+      .description
+        %p
+          Schreiben Sie ein neues Argument für oder gegen das Vorhaben oder formulieren Sie eine neue Information zum Vorhaben.
+        
+      
+    
+    %li.action
+      .actions= link_to t( 'actions.comment' ), '#'
+      .description
+        %p
+          Schreiben Sie einen Kommentar zu einem Argument, wenn Sie etwas ergänzen oder zur Formulierung kritisieren möchten.
+      
+    
+  
+  .dialog.embedded
+    .dialog_content
+      %p
+        Die Aktionen:
+      
+      %p
+        Hier sehen Sie, welche Funktionen sie hier nutzen können.
+      
+    
+    .dialog_actions
+      = link_to 'Weiter', @procedure, class: 'button'
+    
+  
+

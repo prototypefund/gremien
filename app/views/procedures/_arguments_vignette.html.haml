@@ -1,0 +1,20 @@
+.arguments_vignette
+  - if h_args( procedure, 'pro' ).size > 0
+    .pro
+      = h_args( procedure, 'pro' ).size
+      =t 'labels.vignette.pro'
+    
+  
+  - if h_args( procedure, 'info' ).size > 0
+    .info
+      = h_args( procedure, 'info' ).size
+      =t 'labels.vignette.info'
+    
+  
+  - if h_args( procedure, 'contra' ).size > 0
+    .contra
+      = h_args( procedure, 'contra' ).size
+      =t 'labels.vignette.contra'
+    
+  
+
