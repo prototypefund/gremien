@@ -1,0 +1,17 @@
+- h_title 'Ihre Stimme'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Ihre Stimme'
+
+.small_content
+  %h4 Vielen Dank für Ihre Stimme
+  
+  %p
+    Wir haben sie getrennt von Ihren Informationen aufsummiert.
+  
+  %p
+    Wir senden Ihnen eine Benachrichtigung über das Ergebnis an Ihre Adresse:
+    %br
+    %strong= @receipt.visitor.email
+  
+  = link_to 'Weiter&nbsp;&rarr;'.html_safe, @receipt.procedure
+

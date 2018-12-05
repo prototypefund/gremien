@@ -1,0 +1,27 @@
+= form_for receipt do |f|
+  - if receipt.errors.any?
+    #error_explanation
+      %h2
+        = receipt.errors.count
+        Fehler!
+        %br
+        Abstimmungsquittung kann nicht gespeichert werden.
+      
+      %ul
+        - receipt.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  = f.hidden_field :auth_token
+  = hidden_field_tag :vote, 'none'
+  
+  .vote_label Bitte bestätigen:
+  
+  %button{ type: 'submit' }
+    .vote_button.yes= image_tag 'sym/vote_yes.svg'
+    .vote_button.abstain= image_tag 'sym/vote_abstain.svg'
+    .vote_button.no= image_tag 'sym/vote_no.svg'
+  
+

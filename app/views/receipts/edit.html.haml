@@ -1,0 +1,25 @@
+- h_title 'Ihre Stimme'
+- h_titlebar_icon 'back_arrow', @receipt.procedure
+- h_titlebar_text 'Ihre Stimme'
+
+%section.procedure
+  = render 'procedures/show_procedure', procedure: @receipt.procedure, with_expander: false, with_actions: false
+
+%section.voting
+  = link_to @receipt, method: :delete, class: 'vote_button cancel' do
+    = image_tag 'sym/angle_left_w100.svg'
+  
+  = render 'form_vote', receipt: @receipt
+  
+  .button_group
+    = link_to '#', class: 'vote_button yes', data: { action: 'vote_button', vote: 'yes' } do
+      = image_tag 'sym/vote_yes.svg'
+    
+    = link_to '#', class: 'vote_button abstain', data: { action: 'vote_button', vote: 'abstain' } do
+      = image_tag 'sym/vote_abstain.svg'
+    
+    = link_to '#', class: 'vote_button no', data: { action: 'vote_button', vote: 'no' } do
+      = image_tag 'sym/vote_no.svg'
+    
+  
+

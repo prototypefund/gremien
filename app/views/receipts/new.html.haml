@@ -1,0 +1,17 @@
+- h_title 'Ihre Stimme'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Ihre Stimme'
+
+.entity_form
+  - if h_visitor_confirmed?
+    %h4 Link anfordern
+    %p
+      Wir senden Ihnen einen Abstimmungslink an:
+    
+  - else
+    %h4 Wir senden einen Link zum abstimmen...
+    %p
+      \...wenn Sie uns Ihre E-Mail Adresse geben.
+  
+  = render 'receipts/form'
+

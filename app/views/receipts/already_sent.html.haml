@@ -1,0 +1,20 @@
+- h_title 'Doppelung: Link schon angefordert!'
+- h_titlebar_icon 'back_arrow', @procedure
+- h_titlebar_text 'Doppelung!'
+
+.small_content
+  %h4 Doppelung! Link schon angefordert.
+  
+  %p
+    Mit Ihrer E-Mail Adresse hat schon jemand einen Link zur Abstimmung angefordert.
+  
+  %p
+    Warten Sie evtl. ein paar Minuten und schauen Sie auch in Ihrem Spam-Ordner nach.
+  
+  %p
+    Sollte kein Link bei Ihnen eintreffen, können Sie
+    = Receipt::LINK_LIFETIME / 1.hour
+    Stunden warten und es dann nochmals versuchen.
+  
+  = link_to 'Weiter&nbsp;&rarr;'.html_safe, @receipt.procedure
+

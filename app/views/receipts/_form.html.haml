@@ -1,0 +1,24 @@
+= form_for [ @receipt.procedure, @receipt ] do |f|
+  - if @receipt.errors.any?
+    #error_explanation
+      %h2
+        = @receipt.errors.count
+        Fehler verhinden, dass die Abstimmungsquittung gespeichert werden kann.
+      
+      %ul
+        - @receipt.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    = f.label :email, 'Ihre E-Mail Adresse'
+    = render 'general/email_usage'
+    
+    = f.email_field :email, placeholder: 'hanna@muster.de'
+  
+  .actions
+    = f.submit 'Senden', class: 'button'
+  
+
