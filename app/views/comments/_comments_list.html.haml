@@ -1,0 +1,19 @@
+%ul.comments_list
+  - comments.each do |comment|
+    %li.comment{ id: comment.iid, class: comment.status }
+      .status= comment.status
+      = image_tag 'sym/comment.svg', class: 'icon'
+      .content.markdown_content
+        = h_markdown comment.content
+      
+      .actions
+        .front
+          = link_to t( 'actions.edit' ), edit_comment_path( comment ) if h_visitor_owns? comment
+        
+        .back
+          = render 'favs/fav_toggle', entity: comment
+        
+      
+    
+  
+

@@ -1,0 +1,14 @@
+- h_title 'Neuer Kommentar'
+- h_titlebar_icon 'back_arrow', @comment.argument.procedure
+- h_titlebar_text 'Neuer Kommentar'
+
+.entity_form
+  .form_help Neuer Kommentar zu:
+  
+  .comment_argument_preview
+    .title= @comment.argument.title
+  
+  = render 'form'
+  
+  .form_cancel= link_to 'Zurück', @comment.argument, class: 'button cancel'
+

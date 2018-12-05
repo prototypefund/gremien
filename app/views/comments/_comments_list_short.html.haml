@@ -1,0 +1,27 @@
+%ul.comments_list
+  - comments[ 0..2 ].each do |comment|
+    %li.comment{ id: comment.iid, class: comment.status }
+      .status= comment.status
+      = image_tag 'sym/comment.svg', class: 'icon'
+      .content.markdown_content
+        = h_markdown_strip comment.content, 150
+      
+      .actions
+        - if h_visitor_owns? comment
+          .front
+            = link_to t( 'actions.edit' ), edit_comment_path( comment ), target: h_actions_target
+          
+        
+        = link_to t( '.more' ), argument_path( comment.argument ) + "##{comment.iid}", class: 'more', target: h_actions_target
+      
+    
+  
+  - if comments.size > 3
+    %li.info
+      = comments.size - 3
+      weitere Kommentare
+      &nbsp;&nbsp;
+      = link_to t( '.show' ), argument_path( comments.first.argument ) + "##{comments[ 3 ].iid}", class: 'action', target: h_actions_target
+    
+  
+

@@ -1,0 +1,21 @@
+= form_for [ @comment.argument, @comment ] do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h2
+        = @comment.errors.count
+        Fehler verhindern, dass dieses Argument gesichert wird:
+      %ul
+        - @comment.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    = f.label :content, 'Inhalt'
+    = render 'general/field_markdown'
+    = f.text_area :content, rows: 6, autofocus: true, placeholder: 'Ihr Kommentar...'
+  .actions
+    = f.submit 'Sichern', class: 'button'
+  
+

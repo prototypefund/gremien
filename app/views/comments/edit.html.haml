@@ -1,0 +1,12 @@
+- h_title 'Kommentar bearbeiten'
+- h_titlebar_icon 'back_arrow', @comment.argument.procedure
+- h_titlebar_text 'Kommentar bearbeiten'
+
+.entity_form
+  = render 'form'
+  
+  .form_cancel
+    = link_to 'Zurück', @comment.argument.procedure, class: 'button cancel'
+    = link_to 'Löschen', @comment, method: :delete, class: 'button danger'
+  
+
