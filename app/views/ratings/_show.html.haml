@@ -1,0 +1,20 @@
+.focus_content
+  .focus
+    .rating_info
+      %h4 Vielen Dank!
+      %p
+        Sie sind die
+        = "#{@rating.entity.vote_count}."
+        Person, die bewertet hat.<br/>
+        So würde die Rückmeldung durch Ihre Bewertung aussehen:
+      
+    
+    = render 'rating_details', rating: @rating, entity: @rating.entity
+    
+    .rating_info
+      %p
+        = link_to 'Weiter zum bewerteten Vorhaben &rarr;'.html_safe, @rating.entity
+      
+    
+  
+

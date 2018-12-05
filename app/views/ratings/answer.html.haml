@@ -1,0 +1,72 @@
+- h_title "Bewertung zu #{@rating.entity.class.to_s.upcase}"
+- h_description @rating.entity.description
+- h_titlebar_icon 'back_arrow', @rating.entity
+- h_titlebar_text 'Ihre Bewertung'
+
+.entity_form
+  - if @rating.obsolete?
+    %h4 Vielen Dank für Ihre Bewertung
+    %p
+      Der Beitrag wurde inzwischen nochmals verändert
+      und an eine
+      %strong neue zufällige Person
+      zur Bewertung gegeben.
+    
+    %p
+      Danke für Ihre Mitwirkung!
+    
+  - elsif @action == 'relay'
+    %h4 Sie haben keine Zeit
+    %p
+      OK, das kann mal vorkommen.
+      %br
+      Klicken Sie, wenn wir die Prüfung
+      %strong jemand anderem übertragen
+      sollen.
+    
+    %p#button_relay
+      = link_to 'Weiterleiten', relay_rating_path( @rating ), remote: true, method: :put, class: 'button'
+    
+  - else
+    - logger.debug "-- @action:#{@action}"
+    
+    %h4
+      Sie sagen, der Beitrag<br/>
+      %strong= t ".explain_#{@action}"
+    
+    %p.field_explanation
+      Optional können Sie
+      %strong weitere Rückmeldungen
+      mitsenden:
+    
+    = form_for @rating do |f|
+      - if @rating.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@rating.errors.count, "error")} prohibited this rating from being saved:"
+          %ul
+            - @rating.errors.full_messages.each do |message|
+              %li= message
+            
+          
+        
+      
+      = f.hidden_field :kind
+      = render "fields_#{@action}", f: f
+      
+      %p.field_explanation
+        Vielen Dank für Ihre Bewertung!
+        %br
+        Wir senden diese zusammen mit den anderen Bewertungen anonymsiert an die Person, die den Beitrag verfasst hat.
+      
+      %br
+      .field
+        = f.label :comment, 'Optionale Anmerkung'
+        
+        = f.text_area :comment, rows: 3, maxlength: 250, placeholder: 'Anmerkung an AutorIn (max.250 Zeichen)'
+      
+      .actions
+        = f.submit 'Sichern', class: 'button'
+      
+    
+  
+

@@ -1,0 +1,5 @@
+- h_title "Bewertung zu #{@rating.entity.class.to_s.upcase}"
+- h_titlebar_icon 'back_arrow', @rating.entity
+- h_titlebar_text 'Ihre Bewertung'
+
+= render 'ratings/show', rating: @rating

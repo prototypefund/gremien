@@ -1,0 +1,48 @@
+.rating_details
+  %p
+    Hallo AutorIn,
+  
+  %p
+    Deinen Beitrag haben
+    = pluralize rating.vote_count, 'Person'
+    bewertet:<br/>
+    ER WURDE
+    =t( rating.accepted? ? 'rating_labels.accepted' : 'rating_labels.declined' ).upcase
+    MIT
+    - if rating.accepted?
+      = rating.vote_count_accepted
+      ZU
+    
+    = rating.vote_count_declined
+    
+    - unless rating.accepted?
+      ZU
+      = rating.vote_count_accepted
+    
+    STIMMEN
+  
+  %p
+    Angeführte Gründe:<br/>
+    - rating.vote_reasons.each do |r,c|
+      = t( "rating_labels.#{r}" ).upcase
+      von
+      = pluralize c, 'Person'
+      %br
+    
+  
+  - unless rating.vote_feedback.blank?
+    %p
+      Rückmeldungen der BewerterInnen:<br/>
+      - rating.vote_feedback.each do |f|
+        = "---"
+        %br
+        = f
+        %br
+      
+    
+  
+  %br
+  %p
+    Dies ist eine automatische Benachrichtigung
+  
+
