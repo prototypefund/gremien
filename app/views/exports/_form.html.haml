@@ -1,0 +1,39 @@
+= form_for [ @procedure, export ] do |f|
+  - if export.errors.any?
+    #error_explanation
+      %h2
+        = export.errors.count
+        Fehler verhindern, dass dieses Mitwirkungsforum erzeugt werden kann:"
+      %ul
+        - export.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    = f.check_box :only_faved
+    = f.label :only_faved, "Nur <strong>favorisierte</strong> Argumente".html_safe
+    .field_explanation Nur von mir favorisierte Argumente exportieren. Damit ist eine gezielte Auswahl möglich.
+    
+  
+  .field
+    = f.check_box :hide_voting
+    = f.label :hide_voting, "Abstimmen-Taste ausblenden".html_safe
+  
+  .field
+    .form_explanation Welche Spalte soll als erstes anzeigt werden?
+    
+    = f.radio_button :first_column, 'pro'
+    = f.label :first_column, "Pro Argumente".html_safe, value: :pro
+    %br
+    = f.radio_button :first_column, :info
+    = f.label :first_column, "Info Spalte".html_safe, value: :info
+    %br
+    = f.radio_button :first_column, :contra
+    = f.label :first_column, "Contra Argumente".html_safe, value: :contra
+  
+  .actions
+    = f.submit t( 'actions.save' ), class: 'button'
+  
+

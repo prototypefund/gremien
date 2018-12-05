@@ -1,0 +1,30 @@
+- h_title "#{t 'labels.procedure'} #{t 'actions.share_embed'}: #{@export.procedure.title}"
+- h_description @export.procedure.description || @procedure.abstract
+- h_titlebar_icon 'back_arrow', @export.procedure, t( 'labels.procedure' )
+- h_titlebar_text t( 'actions.share_embed' )
+
+.entity_form
+  %h4 Vorhaben in Website einbetten
+  
+  %p
+    Verwenden Sie diesen Code-Schnipsel, um das Vorhaben in eine andere Website einzubetten.
+  
+  .embed_code
+    = '<iframe src="' + root_url + 'exports/' + @export.export_token + '" width="100%" height="700"></iframe>'
+  %br
+  %h5 Weitere Optionen
+  
+  - unless current_account
+    %p
+      Sie können weitere Optionen für Ihren Export konfigurieren, wenn Sie einen Account haben.
+    
+    %p
+      = link_to 'Account anlegen&nbsp;&rarr;'.html_safe, new_account_path
+      &nbsp;&nbsp;oder&nbsp;&nbsp;
+      = link_to 'Einloggen&nbsp;&rarr;'.html_safe, login_path
+      
+    
+  - else
+    = render 'form', export: @export
+  
+

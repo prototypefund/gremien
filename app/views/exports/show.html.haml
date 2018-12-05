@@ -1,0 +1,13 @@
+- h_title "#{t '.procedure_name'}: #{@export.procedure.title}"
+- h_description @export.procedure.description || @export.procedure.abstract
+- h_titlebar_export "Position von #{@author_name_text}"
+
+
+%section.procedure
+  = render 'procedures/show_procedure', procedure: @export.procedure, with_actions: false, new_tab: true
+
+%section.all_arguments
+  = render 'show_arguments', export: @export
+
+= render 'procedures/vote_area', export: @export
+

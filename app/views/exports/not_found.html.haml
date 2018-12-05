@@ -1,0 +1,10 @@
+- h_title "#{t '.not_found'}: #{params[ :id ]}"
+- h_description t( '.not_found_description' )
+- h_titlebar_export t( '.not_found' )
+
+
+.small_content
+  %h4= t '.not_found'
+  %p= t '.not_found_description'
+  %p= link_to "#{t '.link_other'}&nbsp;&rarr;".html_safe, bodies_path, target: '_blank'
+

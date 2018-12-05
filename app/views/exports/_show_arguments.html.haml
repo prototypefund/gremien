@@ -1,0 +1,111 @@
+- # --------------------------------------------
+- procedure = export.procedure
+- pros = h_args( procedure, 'pro' )
+- infos = h_args( procedure, 'info' )
+- contras = h_args( procedure, 'contra' )
+
+- if export.account and export.account.visitor
+  - visitor = export.account.visitor
+  - pros_show = pros.select { |a| a.faved_by?( visitor ) and a.fav_for( visitor ).up? }
+  - infos_show = infos.select { |a| a.faved_by?( visitor ) and a.fav_for( visitor ).up? }
+  - contras_show = contras.select { |a| a.faved_by?( visitor ) and a.fav_for( visitor ).up? }
+- else
+  - pros_show = pros
+  - infos_show = infos
+  - contras_show = contras
+
+- unless export.first_column.blank?
+  - active_column = export.first_column
+- else
+  - active_column = 'info'
+  - if infos.size < 1
+    - active_column = 'contra' if contras.size > 0
+    - active_column = 'pro' if pros.size > 0 and pros.size >= contras.size
+  
+
+
+%nav.arguments_nav
+  .nav_column.pro{ class: active_column == 'pro' ? 'active' : nil, data: { kind: 'pro' } }
+    = pros.size
+    =t 'labels.pro'
+    = link_to image_tag( 'sym/plus_w100.svg' ), new_procedure_argument_path( procedure, kind: 'pro' ), class: 'button_plus', target: '_blank'
+  
+  .nav_column.info{ class: active_column == 'info' ? 'active' : nil, data: { kind: 'info' } }
+    = infos.size
+    =t 'labels.info'
+    = link_to image_tag( 'sym/plus_w100.svg' ), new_procedure_argument_path( procedure, kind: 'info' ), class: 'button_plus', target: '_blank'
+  
+  .nav_column.contra{ class: active_column == 'contra' ? 'active' : nil, data: { kind: 'contra' } }
+    = contras.size
+    =t 'labels.contra'
+    = link_to image_tag( 'sym/plus_w100.svg' ), new_procedure_argument_path( procedure, kind: 'contra' ), class: 'button_plus', target: '_blank'
+  
+
+.arguments_columns
+  .arguments_column.pro{ class: active_column == 'pro' ? 'active' : nil, data: { kind: 'pro' } }
+    - if pros.blank?
+      .help=t '.new_pro_arg'
+      
+    - else
+      - unless export.only_faved?
+        = render 'arguments/arguments_list', arguments: pros, initially_closed: true
+      - else
+        = render 'arguments/arguments_list', arguments: pros_show, initially_closed: true
+        - if pros.size > pros_show.size
+          .column_link
+            zu
+            = link_to 'diesem Vorhaben', procedure, target: '_blank'
+            gibt es
+            %br
+            in PRO noch
+            = pluralize( pros.size - pros_show.size, 'Argument' ) + '...'
+          
+        
+      
+    
+  
+  .arguments_column.info{ class: active_column == 'info' ? 'active' : nil, data: { kind: 'info' } }
+    - if infos.blank?
+      .help=t '.new_info_arg'
+
+    - else
+      - unless export.only_faved?
+        = render 'arguments/arguments_list', arguments: infos, initially_closed: true
+      - else
+        = render 'arguments/arguments_list', arguments: infos_show, initially_closed: true
+        - if infos.size > infos_show.size
+          .column_link
+            zu
+            = link_to 'diesem Vorhaben', procedure, target: '_blank'
+            gibt es
+            %br
+            in INFO noch
+            = pluralize( infos.size - infos_show.size, 'Argument' ) + '...'
+          
+        
+      
+    
+  
+  .arguments_column.contra{ class: active_column == 'contra' ? 'active' : nil, data: { kind: 'contra' } }
+    - if contras.blank?
+      .help=t '.new_contra_arg'
+
+    - else
+      - unless export.only_faved?
+        = render 'arguments/arguments_list', arguments: contras, initially_closed: true
+      - else
+        = render 'arguments/arguments_list', arguments: contras_show, initially_closed: true
+        - if contras.size > contras_show.size
+          .column_link
+            zu
+            = link_to 'diesem Vorhaben', procedure, target: '_blank'
+            gibt es
+            %br
+            in CONTRA noch
+            = pluralize( contras.size - contras_show.size, 'Argument' ) + '...'
+          
+        
+      
+    
+  
+
