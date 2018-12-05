@@ -1,0 +1,21 @@
+- h_title "Fehler: Link abgelaufen"
+- h_description 'Meine Besucher-Seite'
+- h_titlebar_text 'Fehler'
+
+
+.small_content
+  %h4 Fehler: Link ungültig!
+  %p
+    Der Link, den sie benutzt haben, ist leider ungültig oder abgelaufen.
+  
+  %p
+    Klicken Sie, um einen neuen Link an Ihre E-Mail Adresse anzufordern.
+  
+  %p
+    - if @visitor
+      = link_to 'Link anfordern', send_confirmation_visitor_path( @visitor ), method: :put, class: 'button'
+    - else
+      = link_to 'E-Mail eingeben', login_path, class: 'button'
+    
+  
+

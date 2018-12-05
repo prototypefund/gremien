@@ -1,0 +1,11 @@
+- h_title 'Besucher ergänzen'
+- h_titlebar_text 'E-Mail ergänzen'
+
+.entity_form
+  .form_explanation
+    Bitte geben Sie Ihre E-Mail-Adresse an
+  
+  = render 'form', visitor: @visitor
+  
+  .form_cancel= link_to 'Abbrechen', root_path, class: 'button cancel'
+

@@ -1,0 +1,23 @@
+= form_for visitor do |f|
+  - if visitor.errors.any?
+    #error_explanation
+      %h2
+        = visitor.errors.count
+        Fehler verhinderten, dass der Besucher ergänzt wurde.
+      
+      %ul
+        - visitor.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .field
+    = f.label :email, 'E-Mail-Adresse'
+    = render 'general/email_usage'
+    = f.email_field :email, autofocus: true, placeholder: 'hanna@muster.de'
+  
+  .actions
+    = f.submit 'Speichern', class: 'button'
+  
+

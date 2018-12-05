@@ -1,0 +1,91 @@
+- h_title "Besucher: Meine Daten"
+- h_description 'Meine Besucher-Seite'
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Meine Daten'
+
+
+- unless h_visitor_saw? 'visitor_me_intro'
+  - content_for :dialog_content do
+    %p
+      Herzlich Willkommen!
+    
+    %p
+      Auf der Seite
+      %strong Meine Daten
+      halten wir alle Ihre Beiträge für Sie
+      - if h_visitor_has_email?
+        zusammen.
+      - else
+        zusammen, solange Sie unseren
+        %strong Cookie im Browser nicht löschen.
+      
+    
+    %p
+      Sie finden Sie immer
+      %strong links oben unter Menu.
+    
+    - unless h_visitor_has_email?
+      %p
+        Wenn Sie Ihre Beiträge
+        %strong dauerhaft sichern
+        wollen, teilen Sie uns bitte eine E-Mail mit, wir senden dann einen
+        %strong Bestätigungslink.
+      
+    
+  
+  - content_for :dialog_actions do
+    = link_to 'Ok, danke', close_dialog_path( saw: 'visitor_me_intro' ), remote: true, method: :put, 'data-turbolinks': false, class: 'button'
+  
+  = render 'general/dialog'
+
+
+%section.me
+  .details
+    %h3.title Anonyme/r BesucherIn
+    .status
+      - case
+      - when @visitor.confirmed?
+        E-Mail bestätigt:
+        %strong= @visitor.email
+        &nbsp;&nbsp;
+        = link_to t( '.not_me' ), logout_path, class: 'link'
+        %br
+        = link_to 'Eigenes Kennwort festlegen', new_visitor_account_path( @visitor ), class: 'action'
+        
+      - when h_visitor_has_email?
+        %strong vorläufig unbestätigt:
+        = @visitor.email
+        &nbsp;&nbsp;
+        = link_to t( '.not_me' ), logout_path, class: 'link'
+        %br
+        .message_important
+          Bitte schauen Sie nach Ihrer E-Mail-Bestätigung...&nbsp;&nbsp;
+          = link_to 'nochmal senden', send_confirmation_visitor_path( @visitor ), method: :put
+        
+      - else
+        .bad ungesichtert, verfällt
+      
+    
+  
+  = render 'form', visitor: @visitor unless h_visitor_has_email?
+
+- unless @visitor.arguments.blank?
+  %section.arguments
+    = render 'general/entities_list', entities: @visitor.arguments.by_recent, entity_name: 'Argument' + ( @visitor.confirmed? ? '' : ' ungesichert' )
+  
+
+- unless @visitor.comments.blank?
+  %section.comments
+    = render 'general/account_comments_list', comments: @visitor.comments.by_recent
+  
+
+- unless @visitor.favs.blank?
+  %section.favs
+    = render 'favs/list', favs: @visitor.favs.by_recent
+  
+
+- unless @visitor.follows.blank?
+  %section.follows
+    = render 'follows/list', follows: @visitor.follows.by_recent
+  
+
