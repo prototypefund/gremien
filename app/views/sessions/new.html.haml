@@ -1,0 +1,51 @@
+- h_title 'Login'
+- h_titlebar_text 'Anmelden'
+
+- unless @form_type == 'account'
+  .entity_form#visitor
+    = form_tag do
+      .form_explanation
+        Sie können sich mit Ihrer E-Mail Adresse anmelden:
+      
+      .field
+        = label_tag :email, 'E-Mail'
+        = email_field_tag :email, params[ :email ], autofocus: true, placeholder: 'hanna.muster@hier.de'
+      
+      .actions.clearfix
+        = submit_tag 'Anmelden',
+              class: 'button'
+        
+      
+    
+    .form_cancel
+      %br
+      %br
+      %br
+    
+  
+- else
+  .entity_form#account
+    = form_tag do
+      .form_explanation Bitte melden Sie sich an:
+      .field
+        = label_tag :email, 'E-Mail'
+        = email_field_tag :email, params[ :email ], placeholder: 'hanna.muster@hier.de'
+      
+      .field
+        = label_tag :password, 'Password'
+        = password_field_tag :password, params[ :password ], autofocus: true
+        .field_help
+          = link_to 'Kennwort vergessen?', reset_password_path( email: params[ :email ] ), method: :put, remote: :true, data: { turbolinks: false }
+        
+      
+      .actions.clearfix
+        = submit_tag 'Login',
+              class: 'button'
+        
+      
+    
+    .form_cancel
+      = link_to 'Abbrechen', root_path, class: 'button cancel'
+    
+  
+
