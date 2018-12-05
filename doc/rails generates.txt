@@ -1,0 +1,33 @@
+rails g scaffold Visitor token status email
+
+rails g scaffold Body token status name description:text url owner:references:{to_table: accounts}
+
+rails g scaffold Period token status name owner:references:{to_table: accounts}
+
+rails g scaffold Procedure token status kind period:references title description:text submission_at:datetime voteDate_at:datetime url owner:references{to_table: accounts}
+
+rails g scaffold Argument token status kind procedure:references title description:text author:references:{to_table:visitors}
+
+rails g scaffold Comment token status argument:references content:text author:references:{to_table:visitors}
+
+rails g scaffold Fav entity:references:polymorphic author:references:{to_table:visitors}
+
+rails g scaffold Follow entity:references:polymorphic author:references:{to_table:visitors}
+
+rails g scaffold Attachment token status kind title file entity:references:polymorphic author:references:{to_table: :visitors}
+
+rails g scaffold Rating token status kind option1:boolean option2:boolean option3:boolean entity:references:polymorphic visitor:references
+
+rails g resource Receipt token status procedure:references visitor:references auth_token auth_created_at:datetime
+
+rails g resource Vote procedure:references ident_scheme area vote count:integer
+
+rails g model Appvar key value
+
+rails g model Subjectgroup title owner:references:{to_table: accounts}
+
+rails g model Tag key value owner:references:{to_table: accounts}
+
+rails g model Deal procedure:references deal_at:datetime action location url
+
+rails g model Moderatorship procedure:references moderator:references:{to_table: visitors}
