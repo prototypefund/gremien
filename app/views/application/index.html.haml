@@ -1,0 +1,17 @@
+- h_title t( '.head_title' )
+- h_titlebar_text request.host
+
+.main_content
+  = render 'description'
+
+.main_buttons
+  .big.info= link_to t( '.why' ), why_path, class: 'button cancel'
+  .big= link_to t( '.new_procedure' ), new_procedure_path, class: 'button'
+  .big= link_to t( '.procedures' ), bodies_path, class: 'button'
+  .big.info= link_to t( '.more_info' ).html_safe, 'https://gremien.teilt-mit.de', class: 'button cancel'
+
+.picture= image_tag 'Bundestag_Logo.jpg'
+
+= render 'layouts/link_footer'
+
+.background &nbsp;

@@ -1,0 +1,19 @@
+.help_page
+  %h4
+    Wie funktioniert das hier?
+  
+  %p
+    Diese Plattform bietet Pro/Contra Mitwirkungsforen für mehr Demokratie.
+  
+  %p
+    Folgende kleine Hilfestellungen haben wir für Sie bereitgestellt...
+  
+  .link_list
+    = link_to 'Intro #1: Was hier passiert&nbsp;&rarr;'.html_safe, intro_what_procedure_path( Procedure.find_by token: 'help' )
+    = link_to 'Intro #2: Was Sie hier sehen&nbsp;&rarr;'.html_safe, intro_views_procedure_path( Procedure.find_by token: 'help' )
+    = link_to 'Intro #3: Was Sie hier tun können&nbsp;&rarr;'.html_safe, intro_actions_procedure_path( Procedure.find_by token: 'help' )
+    = link_to 'Beispiele: Warum bringt das was?&nbsp;&rarr;'.html_safe, '/info/why#why'
+    = link_to 'Was ist Crowd-Moderation?&nbsp;&rarr;'.html_safe, '/info/crowd_moderation#crowd_moderation'
+    = link_to 'Wie kann ich eine Debatte auf meiner Website einbetten?&nbsp;&rarr;'.html_safe, '/info/embed#embed'
+  
+

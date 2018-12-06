@@ -1,0 +1,18 @@
+.help_page
+  %h4
+    How does it work?
+  
+  %p
+    On this platform you can participate in pro/con forum discussions - for more democracy.
+  
+  %p
+    You need help? See our guidelines here...
+  
+  .link_list
+    = link_to 'Intro #1: What is happening here&nbsp;&rarr;'.html_safe, intro_what_procedure_path( Procedure.find_by token: 'help' )
+    = link_to 'Intro #2: What you will find here&nbsp;&rarr;'.html_safe, intro_views_procedure_path( Procedure.find_by token: 'help' )
+    = link_to 'Intro #3: What you can do here&nbsp;&rarr;'.html_safe, intro_actions_procedure_path( Procedure.find_by token: 'help' )
+    = link_to "Examples: What's it all for?&nbsp;&rarr;".html_safe, '/info/why#why'
+    = link_to 'What is crowd-moderation?&nbsp;&rarr;'.html_safe, '/info/crowd_moderation#crowd_moderation'
+  
+
