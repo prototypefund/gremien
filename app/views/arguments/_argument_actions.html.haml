@@ -1,0 +1,19 @@
+.actions
+  .front
+    - if h_visitor_owns? argument
+      = link_to t( 'actions.edit' ), edit_argument_path( argument )
+    
+  
+  .back
+    = render 'favs/fav_toggle', entity: argument
+    
+    - comments_count = h_comments( argument.comments ).size
+    
+    = link_to new_argument_comment_path( argument ), target: h_actions_target do
+      =t 'actions.comment'
+      - if comments_count > 0
+        .vignette{ title: pluralize( comments_count, 'Kommentar' ) + ' zum Argument' }= comments_count
+      
+    
+  
+

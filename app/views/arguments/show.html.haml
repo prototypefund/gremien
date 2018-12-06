@@ -1,0 +1,6 @@
+- h_title "Argument: #{@argument.title}"
+- h_description @argument.description
+- h_titlebar_icon 'back_arrow', @argument.procedure, 'Vorhaben'
+- h_titlebar_text 'Argument'
+
+= render 'arguments/show', argument: @argument

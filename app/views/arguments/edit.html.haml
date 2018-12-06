@@ -1,0 +1,12 @@
+- h_title 'Argument bearbeiten'
+- h_titlebar_icon 'back_arrow', @argument.procedure
+- h_titlebar_text 'Argument bearbeiten'
+
+.entity_form
+  = render 'form'
+  
+  .form_cancel
+    = link_to 'Zurück', @argument.procedure, class: 'button cancel'
+    = link_to 'Löschen', @argument, method: :delete, class: 'button danger'
+  
+

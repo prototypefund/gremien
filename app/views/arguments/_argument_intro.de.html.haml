@@ -1,0 +1,61 @@
+- go_on_path = h_partial_init go_on_path, '#'
+
+.focus_content
+  .focus
+    .text_block
+      %h4 Wie Sie ein gutes Argument verfassen
+      %h5 1. Titel
+      %p
+        Der Titel sollte eine
+        %strong kurze, prägnante Zusammenfassung
+        des Arguments sein und im Idealfall eine Zeile nicht überschreiten. Bitte vermeiden Sie Ein-Wort-Überschriften und solche, die nur Ihre eigene Haltung wiedergeben. („Ich bin dafür“).
+      
+      %p
+        %em Beispiele:
+        %br
+        „Die Zeitumstellung wirkt sich negativ auf die innere Uhr aus.“
+        %br
+        „Ohne Smartphones verpasse ich wichtige Mitteilungen.“
+        %br
+        „Die Mietpreisbremse funktioniert in der Praxis nicht.“
+      
+      %p#more_1
+        = link_to 'weiter...', '#argument_desc', class: 'action', data: { action: 'show_hide', sel: '#argument_desc, #more_1' }
+      
+    
+    .text_block.hidden#argument_desc
+      %h5 2. Beschreibung
+      %p
+        Begründen Sie anschließend
+        %strong schlüssig
+        und möglichst
+        %strong für alle Beteiligten verständlich, warum
+        Sie zu diesem Argument kommen. Verwenden Sie möglichst klare, kurze Sätze. Vermeiden Sie Fremd- und Fachwörter oder erläutern Sie diese.
+      
+      %p
+        %strong Beispiel:
+        %br
+        „Bei der Umstellung von Sommer- auf Winterzeit wird der menschliche Körper durch Stress belastet. Dies kann vermieden werden, indem die Winterzeit abgeschafft wird.“
+        %br
+        “Von Notfällen, die meine Familie betreffen, erfahre ich ohne mein Smartphone nicht oder zu spät.”
+        %br
+        “Die Sanktionen zur Bestrafung von Vermietern, die sich nicht an die Mietpreise halten, werden in der Realität nicht durchgeführt.”
+      
+      %p#more_2
+        = link_to 'weiter...', '#argument_proof', class: 'action', data: { action: 'show_hide', sel: '#argument_proof, #more_2' }
+      
+    
+    .text_block.hidden#argument_proof
+      %h5 3. Belege
+      %p
+        Belege für Ihre Aussage, wie beispielsweise Links zu Artikeln oder wissenschaftlichen Studien, können Sie
+        %strong mit einem Link
+        in das Argument integrieren (siehe dazu Markdown-Formatierung).
+      
+      %br
+      %p#go_on
+        = link_to "Los geht's", go_on_path, class: 'button'
+      
+    
+  
+

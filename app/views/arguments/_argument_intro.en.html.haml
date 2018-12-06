@@ -1,0 +1,61 @@
+- go_on_path = h_partial_init go_on_path, '#'
+
+.focus_content
+  .focus
+    .text_block
+      %h4 How to write a good argument
+      %h5 1. Title
+      %p
+        The title should be a
+        %strong short, concise summary
+        of your argument. Ideally it should not be longer than one line. Avoid one-word-summaries and simple statements of your own opinion (“I agree”). 
+      
+      %p
+        %em Example:
+        %br
+        “The shift to daylight savings time has a negative effect on the circadian rhythm.”
+        %br
+        “Without my smartphone I miss important messages.”
+        %br
+        “The theory of a price cut-off on rents does not work in practice.”
+      
+      %p#more_1
+        = link_to 'proceed...', '#argument_desc', class: 'action', data: { action: 'show_hide', sel: '#argument_desc, #more_1' }
+      
+    
+    .text_block.hidden#argument_desc
+      %h5 2. Description
+      %p
+        Give a
+        %strong coherent explanation
+        for your argument that is
+        %strong comprehensible for everyone.
+        Use short, precise sentences. Avoid foreign and technical terms or explain the ones you use.
+      
+      %p
+        %em Example:
+        %br
+        “The switch to daylight savings time causes stress symptoms which are strenuous for the human body. This can be avoided if we abolish daylight savings time.”
+        %br
+        “In emergencies regarding my family I won’t be notified or will be alerted too late.”
+        %br
+        “Landlords who ignore the price cut-off are only punished in theory and won’t have to fear any real penalties.”
+      
+      %p#more_2
+        = link_to 'proceed...', '#argument_proof', class: 'action', data: { action: 'show_hide', sel: '#argument_proof, #more_2' }
+      
+    
+    .text_block.hidden#argument_proof
+      %h5 3. Evidence
+      %p
+        Evidence for your statement
+        %strong in form of links,
+        for example to articles or scientific studies, can be integrated into your argument (see markdown formatting).
+      
+      %br
+      %p#go_on
+        = link_to "Go on!", go_on_path, class: 'button'
+      
+    
+  
+

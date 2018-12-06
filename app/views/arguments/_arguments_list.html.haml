@@ -1,0 +1,20 @@
+- initially_closed = h_partial_init initially_closed, false
+
+%ul.arguments_list
+  - arguments.each do |argument|
+    - klass = argument.status
+    - klass += ( !initially_closed and argument.published? ) ? ' expanded' : ' collapsed'
+    %li.argument_preview{ class: klass, id: argument.iid }
+      .status=t ".#{argument.status}"
+      .toggler.collapse= image_tag( 'sym/angle_up_w100.svg' )
+      .toggler.expand= image_tag( 'sym/angle_down_w100.svg' )
+      
+      = render 'arguments/argument_content', argument: argument
+      = render 'arguments/argument_actions', argument: argument
+      
+      - unless h_comments( argument.comments ).blank?
+        = render 'comments/comments_list_short', comments: h_comments( argument.comments )
+      
+    
+  
+

@@ -1,0 +1,21 @@
+- unless h_visitor_saw? 'arguments_intro'
+  - content_for :dialog_content do
+    %p
+      Ihr Argument geht nun in die
+      = link_to 'Crowd-Moderation.', '#'
+    
+    %p
+      Wenn Sie es
+      %strong nochmals bearbeiten
+      wollen oder
+      %strong informiert werden
+      wollen, geben Sie uns bitte Ihre E-Mail Adresse an.
+    
+  
+  - content_for :dialog_actions do
+    = render 'visitors/form', visitor: current_visitor
+    .form_cancel= link_to 'Nein, danke', close_dialog_path( saw: 'arguments_intro' ), remote: true, method: :put, 'data-turbolinks': false, class: 'button cancel'
+  
+  = render 'general/dialog'
+
+= render 'arguments/show', argument: @argument

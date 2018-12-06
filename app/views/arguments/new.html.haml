@@ -1,0 +1,22 @@
+- h_title t( '.new_argument' )
+- h_titlebar_icon 'back_arrow', @argument.procedure
+- h_titlebar_text t( '.new_argument' )
+
+- unless h_skip_argument_intro?
+  = render 'argument_intro', go_on_path: new_procedure_argument_path( @procedure ) + "?kind=#{@argument.kind}&saw=argument_intro"
+  
+- else
+  .entity_form
+    .form_help
+      =t '.new'
+      .vignette{ class: @argument.kind }= t( "labels.#{@argument.kind}" ).upcase
+      =t '.argument_for'
+    
+    .argument_procedure_preview
+      .title= @argument.procedure.title
+    
+    = render 'form'
+    
+    .form_cancel= link_to t( 'actions.back' ), @argument.procedure, class: 'button cancel'
+  
+

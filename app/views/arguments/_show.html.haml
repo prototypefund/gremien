@@ -1,0 +1,21 @@
+.focus_content
+  .focus
+    = link_to argument.procedure, class: 'procedure_preview' do
+      .icon= image_tag 'sym/angle_left_s50.svg'
+      .title= argument.procedure.title
+      .description= h_markdown( truncate argument.procedure.description, length: 255 )
+      
+    
+    .arguments_column{ class: argument.kind }
+      .argument_detail{ id: argument.iid, class: argument.status }
+        .status= argument.status
+        = render 'arguments/argument_content', argument: argument
+        = render 'arguments/argument_actions', argument: argument
+        
+        - unless h_comments( argument.comments ).blank?
+          = render 'comments/comments_list', comments: h_comments( argument.comments )
+        
+      
+    
+  
+

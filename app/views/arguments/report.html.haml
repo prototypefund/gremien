@@ -1,0 +1,45 @@
+- h_title "Bewertung zu #{@argument.title}"
+- h_description @argument.description
+- h_titlebar_icon 'back_arrow', @argument.procedure
+- h_titlebar_text 'Ihre Bewertung'
+
+.entity_form
+  - if @action == 'relay'
+    %h4 Sie haben keine Zeit?
+    %p
+      OK, das kann mal vorkommen.
+      %br
+      Klicken Sie, wenn wir die Prüfung
+      %strong jemand anderem übertragen
+      sollen.
+    
+    %p
+      = link_to 'Weiterleiten', approve_argument_path( @argument ), class: 'button'
+    
+  - else
+    - logger.debug "-- @action:#{@action}"
+    %h4
+      Sie sagen, der Beitrag ist
+      - case @action
+        - when 'abusive'
+          %span.abusive hetzend oder beleidigend
+        - when 'improve'
+          %span.improve verbesserungsbedürftig
+        - when 'accept'
+          %span.accept akzeptabel
+        
+      
+    
+    %p
+      Vielen Dank für Ihre Bewertung!
+      %br
+      Wir senden diese zusammen mit den anderen Prüfern an die Person, die den Beitrag verfasst hat.
+    
+    %p
+      Klicken Sie, um die Prüfung abzuschliessen.
+    
+    %p
+      = link_to 'Senden', approve_argument_path( @argument ), class: 'button'
+    
+  
+
