@@ -1,0 +1,9 @@
+- h_title 'Liste der Gremien'
+- h_titlebar_text t( '.bodies' )
+- h_titlebar_icon_text 'Startseite'
+
+%section.bodies
+  = render 'bodies_list', bodies: @bodies
+
+%section.procedures
+  = render 'procedures/index', procedures: h_body_procedures_for_account( @bodies.first )

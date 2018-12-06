@@ -1,0 +1,18 @@
+%ul.entities_list.bodies_list
+  - @bodies.each do |body|
+    %li{ id: body.iid, class: h_body_selected_class( body ) }
+      = link_to body, class: 'preview' do
+        .title
+          = body.name
+        
+        .description
+          = h_markdown_strip body.description, 250
+        
+        .infos
+          =t '.active_procedures'
+          %span.vignette= body.procedures.opened.published.size
+        
+      
+    
+  
+

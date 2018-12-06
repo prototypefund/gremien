@@ -1,0 +1,26 @@
+- h_title "Graph Gremium '#{@body.name}'"
+- h_description "Grafische Übersicht über alle Vorhaben des #{@body.name}"
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text @body.name
+
+.dialog_layer.procedure_graph.prepared
+  .dialog_outer
+    .dialog
+    
+  
+
+%section.graph
+  = render 'selectors'
+  
+  .search_block
+    = search_field_tag 'search', nil, placeholder: 'Suchbegriff...'
+  
+  %ul.procedures_graph
+    - @group_keys.each do |key|
+      - group = @groups[ key ]
+      %li.sort_separator= group.first.last_change_at ? l( group.first.last_change_at, format: :month_year ) : 'unbekannt'
+      
+      = render partial: 'procedure_block', collection: group.sort_by { |p| p.last_change_at ? p.last_change_at : nil }.reverse, as: :procedure, cached: true
+    
+  
+

@@ -1,0 +1,7 @@
+%li.procedure_selector
+  = link_to body_procedures_path( @body, current_status: status.current_status ), class: 'preview' do
+    = image_tag 'sym/angle_right_s50.svg', class: 'arrow_icon'
+    .count.vignette= status.count
+    .status= status.current_status || 'unbekannt'
+  
+

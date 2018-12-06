@@ -1,0 +1,40 @@
+%aside.selectors.groups
+  .selector_list_title Typ
+  %ul.selector_list
+    - @all_proc_types.each do |type|
+      %li.selector{ title: type.proc_type, data: { sel_key: 'typ', sel_id: Procedure.get_selector_id( type.proc_type ) } }
+        .count= type.count
+        .title= type.proc_type
+      
+    
+  
+  .selector_list_title Status
+  %ul.selector_list
+    - @all_current_status.each do |status|
+      %li.selector{ title: status.current_status, data: { sel_key: 'cst', sel_id: Procedure.get_selector_id( status.current_status ) } }
+        .count= status.count
+        .title= status.current_status
+      
+    
+  
+  .selector_list_title Themengebiete
+  %ul.selector_list
+    - @subjectgroups.each do |subjectgroup|
+      %li.selector{ title: subjectgroup.title, data: { sel_key: 'sug', sel_id: subjectgroup.id } }
+        .count= subjectgroup.procedures.count
+        .title= subjectgroup.title
+      
+    
+  
+
+%aside.selectors.tags
+  .selector_list_title Stichworte
+  %ul.selector_list.searchable
+    - @tags.each do |tag|
+      %li.selector{ title: tag.key, data: { sel_key: 'tag', sel_id: tag.id } }
+        .count= tag.procedures.count
+        .title= tag.key
+      
+    
+  
+

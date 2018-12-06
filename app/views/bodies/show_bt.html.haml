@@ -1,0 +1,71 @@
+- h_title "Vorhaben #{@body.name}"
+- h_description @body.description
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text @body.name
+
+%section.body.bundestag
+  .title
+    Alle Vorhaben des
+    %strong= @body.name
+  
+  .description= h_markdown @body.description
+  
+  .info
+    Weitere Informationen zu diesem Gremium unter
+    = link_to @body.url, @body.url
+  
+
+%section.selectors_lists.bundestag
+  .entity_action_graph
+    = link_to graph_body_path( @body ) do
+      = image_tag 'body_graph.png'
+      %br
+      Grafische Übersicht über alle Vorhaben&nbsp;&rarr;
+    
+  
+  .lists_first
+    %ul.entities_list.selectors_list.general
+      %li.procedure_selector_title Listen
+      %li.procedure_selector
+        = link_to coming_body_procedures_path( @body ), class: 'preview' do
+          = image_tag 'sym/angle_right_s50.svg', class: 'arrow_icon'
+          .count.vignette.attention= @body.deals_coming.count
+          .status Demnächst im Plenum
+        
+      
+      %li.procedure_selector
+        = link_to most_contributed_body_procedures_path( @body ), class: 'preview' do
+          = image_tag 'sym/angle_right_s50.svg', class: 'arrow_icon'
+          .count.vignette.hilite= @body.proc_most_contributed.count
+          .status Meistdiskutiert
+        
+      
+      %li.procedure_selector
+        = link_to most_faved_body_procedures_path( @body ), class: 'preview' do
+          = image_tag 'sym/angle_right_s50.svg', class: 'arrow_icon'
+          .count.vignette.hilite= @body.proc_most_faved.count
+          .status Meistbewertet
+        
+      
+      %li.procedure_selector
+        = link_to body_procedures_path( @body ), class: 'preview' do
+          = image_tag 'sym/angle_right_s50.svg', class: 'arrow_icon'
+          .count.vignette= @body.procedures.published.opened.count
+          .status Alle Vorhaben
+        
+      
+    
+    %ul.entities_list.selectors_list.status
+      %li.procedure_selector_title Listen nach Status
+      = render partial: 'proc_selector_status', collection: @all_current_status, as: :status
+      
+    
+  
+  .lists_second
+    %ul.entities_list.selectors_list.subjectgroups
+      %li.procedure_selector_title Listen nach Themengebiet
+      = render partial: 'proc_selector_subjectgroup', collection: @all_subjectgroups, as: :subjectgroup
+      
+    
+  
+

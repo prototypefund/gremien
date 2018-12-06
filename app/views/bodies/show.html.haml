@@ -1,0 +1,36 @@
+- h_title "Gremium: #{@body.name}"
+- h_description @body.description
+- h_titlebar_icon 'back_arrow', bodies_path, 'Alle Gremien'
+- h_titlebar_text @body.name
+
+%section.bodies
+  = render 'bodies_list', bodies: @bodies
+
+%section.body
+  .title
+    Ausgewählte Vorhaben
+    = 'des' unless @body.none?
+    %strong= @body.name
+  
+  .description= h_markdown @body.description
+  
+  - unless @body.none?
+    .info
+      Weitere Informationen zu diesem Gremium unter
+      = link_to @body.url, @body.url
+    
+  
+
+%section.procedures
+  %ul.entities_list.procedures_list
+    %li.entity_action_new
+      = link_to 'Neues Vorhaben...', h_new_procedure_path, class: 'button'
+      %p.help Bringen Sie ein neues Vorhaben zur Mitwirkung ein
+    
+    - h_body_procedures_for_account( @body ).each do |procedure|
+      - cache_unless ( h_faved?( procedure ) or h_dissed?( procedure ) ), procedure do
+        = render 'procedures/proc_list_preview', procedure: procedure
+      
+    
+  
+

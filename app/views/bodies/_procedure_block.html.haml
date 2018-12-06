@@ -1,0 +1,45 @@
+%li.procedure_block{ id: procedure.iid, title: procedure.title_short, data: { typ: procedure.proc_type_selector_id, cst: procedure.current_status_selector_id, sug: procedure.subjectgroups_ids, tag: procedure.tags_ids } }
+  - if procedure.current_status
+    .status{ class: "cst_#{procedure.current_status_selector_id}" }
+      = procedure.current_status[ 0 ]
+    
+  
+  .procedure_mini
+    .text
+      .title= procedure.title_short
+    
+    .attachments{ class: procedure.proc_type.to_s.parameterize }
+      - procedure.attachments.each do |att|
+        = image_tag "sym/document_#{procedure.proc_type.to_s.parameterize}.svg"
+      
+    
+  
+  .procedure_dialog_detail
+    = link_to procedure, target: '_blank' do
+      .text
+        .type= procedure.proc_type
+        .title= procedure.title
+        .abstract= truncate procedure.abstract, length: 800
+        .info
+          .date
+            eingereicht am
+            =l procedure.submission_at, format: :short_day
+          
+          - if procedure.last_change_at
+            .date
+              letzte Änderung am
+              =l procedure.last_change_at, format: :short_day
+            
+          
+          .proc_current_status{ class: "cst_#{procedure.current_status_selector_id}" }= procedure.current_status
+        
+      
+    
+    .attachments
+      - procedure.attachments.each do |att|
+        = link_to image_tag( "sym/document_#{procedure.proc_type.to_s.parameterize}.svg" ), procedure, target: '_blank', title: att.title
+      
+    
+    = render 'procedures/arguments_vignette', procedure: procedure
+  
+
