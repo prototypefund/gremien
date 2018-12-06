@@ -1,0 +1,14 @@
+- h_title 'Neues Dokument'
+- h_titlebar_icon 'back_arrow', @attachment.entity
+- h_titlebar_text 'Neues Dokument'
+
+.entity_form
+  .form_help Neues Dokument zu:
+  
+  .attachment_entity_preview
+    .title= @attachment.entity.title
+  
+  = render 'form'
+  
+  .form_cancel= link_to 'Zurück', @attachment.entity, class: 'button cancel'
+

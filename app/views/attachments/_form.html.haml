@@ -1,0 +1,44 @@
+= form_for [ @attachment.entity, @attachment ] do |f|
+  - if @attachment.errors.any?
+    #error_explanation
+      %h2
+        = @attachment.errors.count
+        Fehler! Dieses Dokument kannn nicht gesichert werden, weil:
+      %ul
+        - @attachment.errors.full_messages.each do |message|
+          %li= message
+        
+      
+    
+  
+  .form_explanation Quelle des Dokument
+  .field
+    .group_selector{ data: { group: 'kind', sel: 'file' } }
+      = f.radio_button :kind, :file
+      = f.label :kind, "<strong>Lokal:</strong>  hochladen aus Ihren Dateien".html_safe, value: :file
+    .group_selector{ data: { group: 'kind', sel: 'url' } }
+      = f.radio_button :kind, :url
+      = f.label :kind, "<strong>URL:</strong> Dokument im Netz verlinken".html_safe, value: :url
+    
+  
+  %br
+  .form_group{ data: { group: 'kind', sel: 'file' }, class: @attachment.is_file? ? 'initial_on' : '' }
+    .field
+      = f.label :file
+      = f.file_field :file
+    
+  
+  .form_group{ data: { group: 'kind', sel: 'url' }, class: @attachment.is_url? ? 'initial_on' : '' }
+    .field
+      = f.label :url, 'URL der Datei'
+      = f.text_field :url, autofocus: true, placeholder: 'z.B. http://hier.de/datei.pdf'
+    
+  
+  .field
+    = f.label :title, 'Dateiname'
+    = f.text_field :title, autofocus: true, placeholder: 'Ihr Wunsch-Name für die Datei'
+  
+  .actions
+    = f.submit 'Sichern', class: 'button'
+  
+
