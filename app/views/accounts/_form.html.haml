@@ -1,0 +1,47 @@
+.account_form
+  = form_with model: account, local: true do |f|
+    - if account.errors.any?
+      #error_explanation
+        %h2
+          = account.errors.count
+          Fehler!
+          %br
+          Der Zugang kann nicht gesichert werden.
+        
+        %ul
+          - account.errors.full_messages.each do |message|
+            %li= message
+          
+        
+      
+    
+    .field
+      = f.label :email, 'Ihre E-Mail-Adresse'
+      .field_help
+        Ihre E-Mail Adresse wird niemals veröffentlicht oder weitergeben.<br/>
+        Wir senden Ihnen einen
+        %strong Bestätigungslink
+        dorthin.
+      
+      = f.email_field :email, autofocus: account.email.blank?, placeholder: 'z.B. hanna.muster@hier.de'
+    
+    - if @form_type == 'login'
+      .field
+        = f.label :password, 'Kennwort'
+        = f.password_field :password, placeholder: 'Ihr Kennwort'
+      
+    - elsif @form_type == 'register'
+      .field
+        = f.label :password, 'Kennwort'
+        = f.password_field :password, autofocus: !account.email.blank?, placeholder: 'min. 8 verschiedene Zeichen'
+      
+      .field
+        = f.label :password_confirmation, 'Bitte Kennwort bestätigen'
+        = f.password_field :password_confirmation, placeholder: '...hier nochmals eintippen'
+      
+    
+    .actions
+      = f.submit 'Sichern', class: 'button'
+    
+  
+

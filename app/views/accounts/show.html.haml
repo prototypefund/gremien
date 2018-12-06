@@ -1,0 +1,70 @@
+- h_title "Account: Meine Daten"
+- h_description 'Meine Account-Seite'
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Meine Daten'
+
+
+- unless h_visitor_saw? 'account_me_intro'
+  - content_for :dialog_content do
+    %p
+      Herzlich Willkommen!
+    
+    %p
+      Auf der Seite
+      %strong Meine Daten
+      halten wir alle Ihre Beiträge für Sie zusammen.
+    
+    %p
+      Sie finden Sie immer
+      %strong links oben unter Menu.
+    
+  
+  - content_for :dialog_actions do
+    = link_to 'Ok, danke', close_dialog_path( saw: 'account_me_intro' ), remote: true, method: :put, 'data-turbolinks': false, class: 'button'
+  
+  = render 'general/dialog'
+
+
+%section.my_account
+  .details
+    %h3.title Registrierter Account
+    .status
+      E-Mail-Adresse:
+      %strong= @account.email
+      &nbsp;&nbsp;
+      = link_to t( '.not_me' ), logout_path, class: 'link'
+    
+  
+  - if h_admin?
+    .actions
+      = link_to 'History', history_path
+      = link_to 'Freigabe', approval_path
+      = link_to 'Cockpit', cockpit_path
+    
+  
+
+- unless @account.procedures.blank?
+  %section.procedures
+    = render 'general/entities_list', entities: @account.procedures.by_recent, entity_name: 'Vorhaben'
+  
+
+- unless @account.visitor.arguments.blank?
+  %section.arguments
+    = render 'general/entities_list', entities: @account.visitor.arguments.by_recent, entity_name: 'Argument' + ( @account.visitor.confirmed? ? '' : ' ungesichert' )
+  
+
+- unless @account.visitor.comments.blank?
+  %section.comments
+    = render 'general/account_comments_list', comments: @account.visitor.comments.by_recent
+  
+
+- unless @account.visitor.favs.blank?
+  %section.favs
+    = render 'favs/list', favs: @account.visitor.favs.by_recent
+  
+
+- unless @account.visitor.follows.blank?
+  %section.follows
+    = render 'follows/list', follows: @account.visitor.follows.by_recent
+  
+

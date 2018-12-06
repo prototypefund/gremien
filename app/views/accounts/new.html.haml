@@ -1,0 +1,30 @@
+- h_title 'Neuer Zugang'
+- h_titlebar_icon 'back_arrow', bodies_path
+- h_titlebar_text 'Neuer Zugang'
+
+.entity_form
+  .form_help
+    - unless @contribution_text.blank?
+      %p
+        = @contribution_text
+      
+      %p
+        Wenn Sie es weiter
+        %strong bearbeiten wollen,
+        erstellen Sie bitte einen
+        %strong neuen Zugang.
+      
+    - else
+      %p
+        Registriern Sie sich einen neuen Zugang
+      
+    
+    = link_to 'Ich habe schon einen&nbsp;&rarr;'.html_safe, login_path( ft: 'account' )
+  
+  %br
+  = render 'form', account: @account
+  
+  .form_cancel
+    = link_to 'Abbrechen', account_path( id: 'me' ), class: 'button cancel'
+  
+
