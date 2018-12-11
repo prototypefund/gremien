@@ -1,0 +1,256 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  
+  actions:
+    edit: 'edit'
+    activate: 'activate'
+    delete: 'delete'
+    subscribe: 'subscribe'
+    dont_subscribe: "don't subscribe"
+    fav: 'support'
+    dont_fav: 'supported!'
+    dis: 'reject'
+    dont_dis: 'rejected!'
+    share: 'share'
+    share_email: 'share via email'
+    share_embed: 'embed in website'
+    upload_doc: 'Upload document...'
+    comment: 'comment'
+    vote: 'vote'
+    voted: 'voted already'
+    link_requested: 'Link requested'
+    
+    save: 'save'
+    back: 'back'
+  
+  labels:
+    procedure: 'Procedure'
+    
+    pro: 'For'
+    info: 'Evidence'
+    contra: 'Against'
+    
+    title: 'Title'
+    short_summary: 'Short summary'
+    description: 'Description'
+    description_placeholder: 'Reasoning of the argument...'
+    
+    vignette:
+      pro: 'F'
+      info: 'E'
+      contra: 'A'
+    
+    votes: 'Votes'
+    'yes': 'Yes Votes'
+    abstain: 'Abstain Votes'
+    'no': 'No Votes'
+    
+    help: 'Help'
+  
+  time:
+    formats:
+      short_day: "%a, %B %d, %Y"
+      very_short_day: "%m/%d/%y"
+      month_year: "%B %Y"
+      short_day_time: "%a %m/%d/%Y %H:%M"
+    
+  
+  rating_labels:
+    accepted: 'accepted'
+    declined: 'declined'
+    
+    spam: 'spam/ advertising'
+    insult: 'insulting/ agitating'
+    aggressive: 'too aggressive'
+    typos: 'should check spelling & grammar'
+    incomprehensible: 'incomprehensible'
+    overkill: 'too much content, split it'
+    excessive: 'needs to be shortened'
+    accuminate: 'accuminate more'
+    great: 'is great'
+  
+  application:
+    index:
+      head_title: 'Participation forums for everyone'
+      title: 'Crowd-moderated For/Against Participation Forums for more Democracy'
+      why: "Why is this important?"
+      new_procedure: 'Open new procedure...'
+      procedures: 'See active participation forums'
+      more_info: 'More Info about GREMIEN software&nbsp;&rarr;'
+    
+    help:
+      help_name: 'Help'
+    
+    logout:
+      logged_out: 'You logged out.'
+    
+  
+  layouts:
+    titlebar:
+      login: 'Login'
+      logout: 'Logout'
+      help: 'Help'
+    
+    link_footer:
+      imprint: 'Imprint &amp; Disclaimer'
+      privacy: 'Privacy policy'
+    
+  
+  info:
+    why:
+      why_title: "What's it all for?"
+      why_ttbar: 'What for'
+    
+    crowd_moderation:
+      title: 'What is Crowd-Moderation?'
+      titlebar: 'Intro Crowd Mod'
+    
+  
+  bodies:
+    bodies_list:
+      active_procedures: 'active procedures'
+    
+    index:
+      bodies: 'Bodies'
+      active_procedures: 'active procedures'
+    
+  
+  procedures:
+    index:
+      procedures: 'Procedures'
+      all_procedures: 'All Procedures'
+    
+    show:
+      not_published: 'The procedure is not yet published!'
+      procedure_name: 'Procedure'
+      
+      dialog_where: 'You are looking at a participation forum for a procedure'
+      whats_going: "What's going on?"
+      short_intro: 'Short intro'
+      no_thanks: 'Thanks, go on'
+    
+    show_procedure:
+      more_info_link: 'More information about the procedure &rarr;'
+      show_more: 'show more'
+      
+      no_documents: 'No documents about the procedure'
+    
+    proc_meta_info:
+      submitted_at: 'submitted on'
+      last_change_at: 'last change on'
+      vote_at: 'voting starts at'
+      vote_end: 'until'
+    
+    show_arguments:
+      new_pro_arg: 'Write a new argument in favor of the procedure...'
+      new_info_arg: 'Write new evidence about the procedure...'
+      new_contra_arg: 'Write a new argument against the procedure...'
+    
+    vote_area:
+      vote_results: 'Vote Results'
+    
+    form_new:
+      which_body: 'Which body decides?'
+    
+    create:
+      procedure_created: 'Procedure was successfully created.'
+    
+    update:
+      procedure_updated: 'Procedure was successfully updated.'
+    
+  
+  exports:
+    show_arguments:
+      new_pro_arg: 'Write a new argument in favor of the procedure...'
+      new_info_arg: 'Write new evidence about the procedure...'
+      new_contra_arg: 'Write a new argument against the procedure...'
+    
+    not_found:
+      not_found: 'Not found'
+      not_found_description: 'This procedure could not be found. Most probably your link is corrupt. You are welcome to look around and discover other procedures on the participation platform.'
+      link_other: 'other procedures'
+    
+  
+  attachments:
+    attachments_list:
+    
+  
+  arguments:
+    arguments_list:
+      new: 'New'
+    
+    new:
+      new_argument: 'New Argument'
+      new: 'New'
+      argument_for: 'Argument for:'
+    
+    form:
+      error_message: 'errors prevent this argument from beeing saved:'
+    
+  
+  comments:
+    comments_list_short:
+      more: 'more...'
+      show: 'show...'
+    
+  
+  favs:
+    list:
+      you_faved: 'You supported:'
+      you_dissed: 'You rejected:'
+    
+  
+  follows:
+    form:
+      email_usage: 'Your E-Mail will <strong>not be published</strong> and <strong>never given</strong> to others. We only use it to notify you.'
+    
+  
+  ratings:
+  
+  accounts:
+    show:
+      not_me: 'This is not me'
+    
+  
+  visitors:
+    show:
+      not_me: 'This is not me'
+    
+  
+  sessions:
+    destroy:
+      logged_out: 'You logged out.'
+    
+  
+

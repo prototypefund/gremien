@@ -1,0 +1,263 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  hello: "Hallo Welt"
+  
+  actions:
+    edit: 'bearbeiten'
+    activate: 'aktivieren'
+    delete: 'löschen'
+    subscribe: 'abonnieren'
+    dont_subscribe: 'nicht abonnieren'
+    fav: 'favorisieren'
+    dont_fav: 'favorisiert!'
+    dis: 'herabstufen'
+    dont_dis: 'herabgestuft!'
+    share: 'teilen'
+    share_email: 'Per Mail weiterleiten'
+    share_embed: 'In Website einbetten'
+    upload_doc: 'Dokument hochladen...'
+    comment: 'kommentieren'
+    vote: 'abstimmen'
+    voted: 'schon abgestimmt'
+    link_requested: 'Link angefordert'
+    
+    save: 'sichern'
+    back: 'zurück'
+  
+  labels:
+    procedure: 'Vorhaben'
+    
+    pro: 'Pro'
+    info: 'Info'
+    contra: 'Contra'
+    
+    title: 'Titel'
+    short_summary: 'Kurze Zusammenfassung'
+    description: 'Beschreibung'
+    description_placeholder: 'Begründung des Arguments...'
+    
+    vignette:
+      pro: 'P'
+      info: 'I'
+      contra: 'C'
+    
+    votes: 'Stimmen'
+    'yes': 'Ja-Stimmen'
+    abstain: 'Enthaltungen'
+    'no': 'Nein-Stimmen'
+    
+    help: 'Hilfe'
+  
+  time:
+    formats:
+      short_day: "%a. %d. %B %Y"
+      very_short_day: "%d.%m.%y"
+      month_year: "%B %Y"
+      short_day_time: "%a.%d.%m.%Y %H:%M"
+    
+  
+  rating_labels:
+    accepted: 'angenommen'
+    declined: 'abgelehnt'
+    
+    spam: 'Spam/ Werbung'
+    insult: 'beleidigend/ hetzend'
+    aggressive: 'zu aggressiv'
+    typos: 'muss auf Schreib- & Grammatikfehler geprüft werden'
+    incomprehensible: 'unverständlich'
+    overkill: 'enthält zu viel verschiedenes'
+    excessive: 'könnte gekürzt werden'
+    accuminate: 'müsste noch mehr auf den Punkt gebracht werden'
+    great: 'ist gut'
+  
+  application:
+    index:
+      head_title: 'Mitwirkungsforen für alle | GREMIEN'
+      title: 'Crowd-moderierte Pro/Contra Mitwirkungsforen für mehr Demokratie'
+      why: "Warum bringt das was?"
+      new_procedure: 'Neues Forum anlegen...'
+      procedures: 'Zu aktiven Mitwirkungsforen'
+      more_info: 'Mehr Infos zur Software GREMIEN&nbsp;&rarr;'
+    
+    index_bt:
+      head_title: 'Mitwirkungsforen für den Bundestag | GREMIEN'
+    
+    help:
+      help_name: 'Hilfe'
+    
+    logout:
+      logged_out: 'Sie haben sich abgemeldet.'
+    
+  
+  layouts:
+    titlebar:
+      login: 'Einloggen'
+      logout: 'Ausloggen'
+      help: 'Hilfe'
+    
+    link_footer:
+      imprint: 'Impressum &amp; Disclaimer'
+      privacy: 'Datenschutz'
+    
+  
+  info:
+    why:
+      why_title: "Warum bringt das was?"
+      why_ttbar: 'Warum Einführung'
+    
+    crowd_moderation:
+      title: 'Was ist Crowd-Moderation?'
+      titlebar: 'Einführung'
+    
+  
+  bodies:
+    bodies_list:
+      active_procedures: 'aktive Vorhaben'
+    
+    index:
+      bodies: 'Gremien'
+      active_procedures: 'aktive Vorhaben'
+    
+  
+  procedures:
+    index:
+      procedures: 'Vorhaben'
+      all_procedures: 'Alle Vorhaben'
+    
+    show:
+      not_published: 'Das Vorhaben ist noch nicht veröffentlicht!'
+      procedure_name: 'Vorhaben'
+      
+      dialog_where: 'Sie sind hier in einem Mitwirkungsforum zu einem Vorhaben'
+      whats_going: 'Was passiert hier?'
+      short_intro: 'Kurze Einführung'
+      no_thanks: 'Danke, geht auch so'
+    
+    show_procedure:
+      more_info_link: 'Mehr Informationen zum Vorhaben &rarr;'
+      show_more: 'mehr zeigen'
+      
+      no_documents: 'Keine Dokumente zum Vorhaben'
+    
+    proc_meta_info:
+      submitted_at: 'eingereicht am'
+      last_change_at: 'letzte Änderung am'
+      vote_at: 'zur Abstimmung ab'
+      vote_end: 'bis'
+    
+    show_arguments:
+      new_pro_arg: 'Schreiben Sie ein neues Argument für das Vorhaben...'
+      new_info_arg: 'Schreiben Sie eine neue Information für das Vorhaben...'
+      new_contra_arg: 'Schreiben Sie ein neues Argument gegen das Vorhaben...'
+    
+    vote_area:
+      vote_results: 'Meinungsbild'
+    
+    form_new:
+      which_body: 'Welches Gremium entscheidet?'
+    
+    create:
+      procedure_created: 'Vorhaben wurde neu angelegt.'
+    
+    update:
+      procedure_updated: 'Vorhaben wurde erfolgreich gesichert.'
+    
+  
+  exports:
+    show_arguments:
+      new_pro_arg: 'Schreiben Sie ein neues Argument für das Vorhaben...'
+      new_info_arg: 'Schreiben Sie eine neue Information für das Vorhaben...'
+      new_contra_arg: 'Schreiben Sie ein neues Argument gegen das Vorhaben...'
+    
+    not_found:
+      not_found: 'Nicht gefunden'
+      not_found_description: 'Dieses Vorhaben wurde nicht gefunden. Ziemlich sicher ist der Link falsch gesetzt. Sie können sich aber gerne umschauen und andere Vorhaben auf der Mitwirkungsplattform erkunden.'
+      link_other: 'andere Vorhaben'
+    
+  
+  attachments:
+    attachments_list:
+    
+  
+  arguments:
+    arguments_list:
+      new: 'Neu'
+    
+    new:
+      new_argument: 'Neues Argument'
+      new: 'Neues'
+      argument_for: 'Argument zu:'
+    
+    form:
+      error_message: 'Fehler verhindern, dass dieses Argument gesichert werden kann:'
+    
+  
+  comments:
+    comments_list_short:
+      more: 'mehr...'
+      show: 'anzeigen...'
+    
+  
+  favs:
+    list:
+      you_faved: 'Sie favorisierten:'
+      you_dissed: 'Sie stuften herab:'
+    
+  
+  follows:
+    form:
+      email_usage: 'Ihre E-Mail wird <strong>nirgends veröffentlicht</strong> und <strong>niemals</strong> an andere <strong>weitergegeben</strong>. Wir verwenden sie nur, um sie zu benachrichtigen.'
+    
+  
+  ratings:
+    answer:
+      explain_abusive: "ist Spam, hetzend oder beleidigend"
+      explain_improve: "muss verbessert werden"
+      explain_accept: "kann veröffentlicht werden"
+  
+  accounts:
+    show:
+      not_me: 'Das bin ich nicht'
+    
+  
+  visitors:
+    show:
+      not_me: 'Das bin ich nicht'
+    
+  
+  sessions:
+    destroy:
+      logged_out: 'Sie haben sich abgemeldet.'
+    
+  
+
